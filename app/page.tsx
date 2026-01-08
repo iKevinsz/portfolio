@@ -40,7 +40,8 @@ import {
   Plus,
   Play,
   GraduationCap,
-  Briefcase, // <--- NOVOS ÍCONES IMPORTADOS
+  Briefcase,
+  Palette, // <--- NOVO ÍCONE PARA UX/UI
 } from "lucide-react";
 
 // --- TEXTOS E TRADUÇÕES ---
@@ -55,56 +56,55 @@ const translations = {
     hero: {
       status: "Disponível para projetos",
       role: "Desenvolvedor",
-      role2: "Full Stack",
-      subtitle: "& Desenvolvedor de IA",
+      role2: "Front End", // MUDANÇA AQUI
+      subtitle: "& Especialista em React", // MUDANÇA AQUI
       desc: (
         <>
-          Eu construo aplicações web modernas e escaláveis. Especialista em
-          <strong className="text-slate-100"> Next.js</strong>,
-          <strong className="text-slate-100"> Integrações com IA</strong> e
-          otimização de{" "}
-          <strong className="text-slate-100">Sistemas de Gestão</strong>.
+          Focado em criar <strong className="text-slate-100">Interfaces de Alta Fidelidade</strong> e experiências fluidas. 
+          Especialista em <strong className="text-slate-100">Next.js</strong>, 
+          <strong className="text-slate-100"> Tailwind CSS</strong> e 
+          <strong className="text-slate-100"> UX/UI Design</strong>.
         </>
       ),
       cta: "Vamos conversar",
     },
     stack: "Tecnologias que domino",
     projects: {
-      title: "Projetos em Destaque",
+      title: "Interfaces em Destaque",
       subtitle:
-        "Uma seleção de soluções que desenvolvi recentemente, focando em performance e inteligência artificial.",
+        "Uma seleção de projetos onde foquei na experiência do usuário, interatividade e design responsivo.",
       p1: {
         title: "Dashboard Financeiro & AI",
-        desc: "Sistema financeiro completo com um 'Consultor IA' (Gemini) integrado que analisa o fluxo de caixa do usuário e sugere economias em tempo real.",
+        desc: "Interface de dados rica e interativa. Gráficos animados, tabelas dinâmicas e uma integração visual limpa com o Consultor IA (Gemini).",
       },
       p2: {
-        title: "Gestão (ERP)",
-        desc: "Modernização de interfaces de PDV. Criação de fluxos de cadastro, relatórios fiscais e design responsivo focado na experiência mobile do lojista.",
+        title: "Gestão Web (ERP)",
+        desc: "Foco total em UX Mobile. Criação de fluxos de cadastro intuitivos e relatórios visuais para facilitar a vida do lojista no celular.",
       },
       p3: {
         title: "Sistema de Feedback",
-        desc: "Plataforma onde usuários enviam sugestões e votam em melhorias. Utiliza Server Actions para máxima velocidade e segurança nas requisições.",
+        desc: "Aplicação com 'Optimistic UI' para interações instantâneas. Layout limpo para votação e feedback visual imediato ao usuário.",
       },
     },
     about: {
       title: "Quem é o Kevin?",
-      desc: "Desenvolvedor focado em resultados reais. Com base acadêmica sólida e vivência de mercado, acredito que código bom é aquele que resolve problemas e escala com eficiência. Quando não estou entregando features, estou recarregando a bateria nos jogos.",
+      desc: "Desenvolvedor Front End apaixonado por pixels. Acredito que uma boa interface não é apenas bonita, mas funcional e performática. Uso minha base técnica para transformar designs complexos em código limpo e escalável.",
       h1: {
         title: "Formado na FATEC",
-        desc: "Base sólida em Análise e Desenvolvimento de Sistemas. Foco em engenharia de software e boas práticas.",
+        desc: "Base sólida em engenharia de software, aplicada para construir arquiteturas de front-end organizadas e manuteníveis.",
       },
       h2: {
         title: "Software House",
-        desc: "Atualmente trabalho em uma Software House, que fornece automacão comercial para mais de 15mil clientes.",
+        desc: "Atuo no front-end de sistemas complexos, garantindo que milhares de usuários tenham uma experiência fluida e intuitiva.",
       },
       h3: {
-        title: "Gamer & Estrategista",
-        desc: "Nas horas vagas, o foco continua. Analiso metas, otimizo estratégias e busco o high elo.",
+        title: "Gamer & Criativo",
+        desc: "A criatividade dos jogos e animes inspira meu design. Busco sempre o 'Pixel Perfect' e a melhor estratégia.",
       },
     },
     footer: {
       title: "Vamos construir algo incrível?",
-      desc: "Estou disponível para novos projetos, freelas ou apenas para trocar uma ideia sobre tecnologia.",
+      desc: "Estou disponível para criar interfaces modernas, landing pages ou refatorar seu front-end.",
       copy: "Desenvolvido com Next.js & Tailwind.",
     },
   },
@@ -117,57 +117,56 @@ const translations = {
     },
     hero: {
       status: "Available for projects",
-      role: "Full Stack",
+      role: "Front End", // MUDANÇA AQUI
       role2: "Developer",
-      subtitle: "& AI Enthusiast",
+      subtitle: "& React Specialist", // MUDANÇA AQUI
       desc: (
         <>
-          I build modern and scalable web applications. Specialist in
-          <strong className="text-slate-100"> Next.js</strong>,
-          <strong className="text-slate-100"> AI Integrations</strong> and
-          optimizing{" "}
-          <strong className="text-slate-100">Management Systems</strong>.
+          Focused on building <strong className="text-slate-100">High Fidelity Interfaces</strong> and fluid experiences. 
+          Specialist in <strong className="text-slate-100">Next.js</strong>, 
+          <strong className="text-slate-100"> Tailwind CSS</strong> and 
+          <strong className="text-slate-100"> UX/UI Design</strong>.
         </>
       ),
       cta: "Let's talk",
     },
     stack: "Technologies I master",
     projects: {
-      title: "Featured Projects",
+      title: "Featured Interfaces",
       subtitle:
-        "A selection of solutions I recently developed, focusing on performance and artificial intelligence.",
+        "A selection of projects where I focused on user experience, interactivity, and responsive design.",
       p1: {
         title: "Finance Dashboard & AI",
-        desc: "Complete financial system with an integrated 'AI Consultant' (Gemini) that analyzes user cash flow and suggests savings in real-time.",
+        desc: "Rich and interactive data interface. Animated charts, dynamic tables, and a clean visual integration with the AI Consultant (Gemini).",
       },
       p2: {
         title: "Web Management (ERP)",
-        desc: "Modernization of POS interfaces. Creation of registration flows, fiscal reports, and responsive design focused on the merchant's mobile experience.",
+        desc: "Total focus on Mobile UX. Creation of intuitive registration flows and visual reports to make the merchant's life easier on mobile.",
       },
       p3: {
         title: "Feedback System",
-        desc: "Platform where users submit suggestions and vote on improvements. Uses Server Actions for maximum speed and request security.",
+        desc: "Application featuring 'Optimistic UI' for instant interactions. Clean layout for voting and immediate visual feedback to the user.",
       },
     },
     about: {
       title: "Who is Kevin?",
-      desc: "Developer focused on real results. With a solid academic background and market experience, I believe good code is code that solves problems and scales efficiently. When I'm not shipping features, I'm recharging my batteries gaming.",
+      desc: "Front End Developer passionate about pixels. I believe a good interface isn't just beautiful, but functional and performant. I use my technical background to turn complex designs into clean, scalable code.",
       h1: {
         title: "FATEC Graduate",
-        desc: "Solid foundation in Analysis and Systems Development. Focus on software engineering and best practices.",
+        desc: "Solid foundation in software engineering, applied to building organized and maintainable front-end architectures.",
       },
       h2: {
         title: "Software House",
-        desc: "Currently working in the industry, developing complex solutions, dealing with real deadlines and demanding clients.",
+        desc: "I work on the front-end of complex systems, ensuring thousands of users have a fluid and intuitive experience.",
       },
       h3: {
-        title: "Gamer & Strategist",
-        desc: "In my free time, the focus remains. I analyze metas, optimize strategies, and chase high elo.",
+        title: "Gamer & Creative",
+        desc: "Gaming and anime creativity inspire my design. I always strive for 'Pixel Perfect' and the best strategy.",
       },
     },
     footer: {
       title: "Let's build something amazing?",
-      desc: "I'm available for new projects, freelance work, or just to chat about technology.",
+      desc: "I'm available to create modern interfaces, landing pages, or refactor your front-end.",
       copy: "Built with Next.js & Tailwind.",
     },
   },
@@ -268,7 +267,7 @@ export default function Portfolio() {
                   opacity: Math.random() * 0.5 + 0.1,
                 }}
               >
-                {"01 AF 3C /> fn const var if else return 01 FF 00"}
+                {"<div /> const UI = () => {} style={{}}"}
               </div>
             );
           })}
@@ -287,7 +286,7 @@ export default function Portfolio() {
                 <div className="w-3 h-3 rounded-full bg-green-500/50 hover:bg-green-500 transition-colors" />
               </div>
               <span className="text-xs font-mono text-slate-500 tracking-wider">
-                LIVE PREVIEW • READ ONLY MODE
+                LIVE PREVIEW • INTERFACE MODE
               </span>
               <button
                 onClick={() => setActiveDemo(null)}
@@ -392,7 +391,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* --- TECH STACK --- */}
+      {/* --- TECH STACK (REORDENADO PARA FRONT) --- */}
       <section
         id="stack"
         className="py-12 border-y border-white/5 bg-white/[0.02] relative z-10 backdrop-blur-sm"
@@ -402,28 +401,15 @@ export default function Portfolio() {
             {t.stack}
           </p>
           <div className="flex flex-wrap justify-center gap-8 md:gap-16">
+            {/* FRONTEND PRIMEIRO */}
             <TechItem icon={<Code2 />} label="Next.js 15" color="text-white" />
-            <TechItem
-              icon={<LayoutTemplate />}
-              label="Tailwind"
-              color="text-cyan-400"
-            />
-            <TechItem
-              icon={<Database />}
-              label="Prisma ORM"
-              color="text-teal-400"
-            />
-            <TechItem
-              icon={<Bot />}
-              label="Gemini AI"
-              color="text-purple-400"
-            />
-            <TechItem
-              icon={<Terminal />}
-              label="TypeScript"
-              color="text-blue-500"
-            />
-            <TechItem icon={<Cpu />} label="Node.js" color="text-green-500" />
+            <TechItem icon={<LayoutTemplate />} label="Tailwind" color="text-cyan-400" />
+            <TechItem icon={<Terminal />} label="TypeScript" color="text-blue-500" />
+            <TechItem icon={<Palette />} label="UX/UI Design" color="text-pink-400" /> {/* NOVO */}
+            
+            {/* INTEGRAÇÕES DEPOIS */}
+            <TechItem icon={<Bot />} label="Gemini AI" color="text-purple-400" />
+            <TechItem icon={<Database />} label="Prisma ORM" color="text-teal-400" />
           </div>
         </div>
       </section>
@@ -444,7 +430,7 @@ export default function Portfolio() {
             <ProjectCard
               title={t.projects.p1.title}
               desc={t.projects.p1.desc}
-              tags={["Next.js 15", "Server Actions", "Recharts"]}
+              tags={["Next.js", "Recharts", "UI Design"]}
               color="blue"
               hasDemo={true}
               onDemoClick={() => setActiveDemo(<FinanceiroDemo />)}
@@ -453,7 +439,7 @@ export default function Portfolio() {
             <ProjectCard
               title={t.projects.p2.title}
               desc={t.projects.p2.desc}
-              tags={["React", "UX/UI Mobile", "Sistemas"]}
+              tags={["Mobile First", "React", "UX/UI"]}
               color="purple"
               hasDemo={true}
               onDemoClick={() => setActiveDemo(<GestaoDemo />)}
@@ -462,7 +448,7 @@ export default function Portfolio() {
             <ProjectCard
               title={t.projects.p3.title}
               desc={t.projects.p3.desc}
-              tags={["Prisma", "SQL", "Votação"]}
+              tags={["Optimistic UI", "Interatividade"]}
               color="emerald"
               hasDemo={true}
               onDemoClick={() => setActiveDemo(<FeedbackDemo />)}
@@ -471,7 +457,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* --- SOBRE (PERSONAL) - ATUALIZADO --- */}
+      {/* --- SOBRE (PERSONAL) --- */}
       <section
         id="sobre"
         className="py-32 px-6 bg-white/[0.02] border-y border-white/5 relative z-10 backdrop-blur-sm"
@@ -520,20 +506,20 @@ export default function Portfolio() {
             </div>
           </div>
 
-          {/* Hobby Cards ATUALIZADOS */}
+          {/* Hobby Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-20">
             <HobbyCard
-              icon={<GraduationCap size={32} className="text-blue-400" />} // Ícone Acadêmico
+              icon={<GraduationCap size={32} className="text-blue-400" />}
               title={t.about.h1.title}
               desc={t.about.h1.desc}
             />
             <HobbyCard
-              icon={<Briefcase size={32} className="text-purple-400" />} // Ícone Trabalho
+              icon={<Briefcase size={32} className="text-purple-400" />}
               title={t.about.h2.title}
               desc={t.about.h2.desc}
             />
             <HobbyCard
-              icon={<Gamepad2 size={32} className="text-emerald-400" />} // Ícone Gamer
+              icon={<Gamepad2 size={32} className="text-emerald-400" />}
               title={t.about.h3.title}
               desc={t.about.h3.desc}
             />
@@ -541,7 +527,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* --- FOOTER / CONTATO --- */}
+      {/* --- FOOTER --- */}
       <footer id="contato" className="py-20 bg-[#050505] relative z-10">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold text-white mb-6">
@@ -699,6 +685,7 @@ function SocialBtn({ href, icon, label }: any) {
 }
 
 // --- DEMO COMPONENTS (MOCKS INTERATIVOS) ---
+// (Mantive os Demos iguais, pois eles já demonstram boa UI)
 
 // 1. MOCK FINANCEIRO
 function FinanceiroDemo() {
