@@ -21,7 +21,7 @@ const translations = {
       status: "Disponível para projetos",
       role: "Desenvolvedor",
       role2: "Full Stack",
-      subtitle: "& AI Enthusiast",
+      subtitle: "& Desenvolvedor de IA",
       desc: (
         <>
           Eu construo aplicações web modernas e escaláveis. Especialista em 
