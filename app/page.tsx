@@ -1,15 +1,16 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { 
   Github, Linkedin, Mail, Instagram, 
   Code2, Database, Bot, LayoutTemplate, 
-  Gamepad2, Tv, Zap, ChevronRight, Terminal, Cpu, Globe,
+  Gamepad2, ChevronRight, Terminal, Cpu, Globe,
   X, Wallet, ArrowUpRight, ArrowDownRight, 
   CalendarClock, Search, Check, ThumbsUp, Sparkles, MessageSquare, CheckCircle2, 
   LayoutDashboard, ShoppingBag, UtensilsCrossed, FileText, Settings, 
-  Filter, List, Grid, Pencil, Trash2, Plus, Play
+  Filter, List, Grid, Pencil, Trash2, Plus, Play,
+  GraduationCap, Briefcase // <--- NOVOS ÍCONES IMPORTADOS
 } from "lucide-react";
 
 // --- TEXTOS E TRADUÇÕES ---
@@ -50,10 +51,10 @@ const translations = {
     },
     about: {
       title: "Quem é o Kevin?",
-      desc: "Além do código, sou movido por estratégias, boas histórias e café. Acredito que a tecnologia deve ser usada para simplificar a vida, seja automatizando um processo chato ou calculando build no LoL. Sempre buscando a próxima stack que vai facilitar meu dia a dia.",
-      h1: { title: "Gamer Competitivo", desc: "Main Miss Fortune. Analiso o meta, otimizo builds e jogo com estratégia." },
-      h2: { title: "Otaku", desc: "Fã de Demon Slayer. A disciplina e a busca pela perfeição dos Hashiras me inspiram." },
-      h3: { title: "Potterhead", desc: "Sempre esperando a carta de Hogwarts. Hagrid é o melhor personagem, sem discussão." }
+      desc: "Desenvolvedor focado em resultados reais. Com base acadêmica sólida e vivência de mercado, acredito que código bom é aquele que resolve problemas e escala com eficiência. Quando não estou entregando features, estou recarregando a bateria nos jogos.",
+      h1: { title: "Formado na FATEC", desc: "Base sólida em Análise e Desenvolvimento de Sistemas. Foco em engenharia de software e boas práticas." },
+      h2: { title: "Software House", desc: "Atualmente trabalho em uma Software House, que fornece automacão comercial para mais de 15mil clientes." },
+      h3: { title: "Gamer & Estrategista", desc: "Nas horas vagas, o foco continua. Analiso metas, otimizo estratégias e busco o high elo." }
     },
     footer: {
       title: "Vamos construir algo incrível?",
@@ -97,10 +98,10 @@ const translations = {
     },
     about: {
       title: "Who is Kevin?",
-      desc: "Beyond code, I'm driven by strategy, good stories, and coffee. I believe technology should simplify life, whether automating a boring process or calculating a LoL build. Always looking for the next stack that will make my daily life easier.",
-      h1: { title: "Competitive Gamer", desc: "Main Miss Fortune. I analyze the meta, optimize builds, and play with strategy." },
-      h2: { title: "Otaku", desc: "Demon Slayer fan. The discipline and pursuit of perfection of the Hashiras inspire me." },
-      h3: { title: "Potterhead", desc: "Always waiting for my Hogwarts letter. Hagrid is the best character, no discussion." }
+      desc: "Developer focused on real results. With a solid academic background and market experience, I believe good code is code that solves problems and scales efficiently. When I'm not shipping features, I'm recharging my batteries gaming.",
+      h1: { title: "FATEC Graduate", desc: "Solid foundation in Analysis and Systems Development. Focus on software engineering and best practices." },
+      h2: { title: "Software House", desc: "Currently working in the industry, developing complex solutions, dealing with real deadlines and demanding clients." },
+      h3: { title: "Gamer & Strategist", desc: "In my free time, the focus remains. I analyze metas, optimize strategies, and chase high elo." }
     },
     footer: {
       title: "Let's build something amazing?",
@@ -167,12 +168,11 @@ export default function Portfolio() {
         {/* 4. CHUVA DE CÓDIGO (Matrix Neon) */}
         <div className="absolute inset-0 z-0 opacity-40">
            {Array.from({ length: 25 }).map((_, i) => {
-              // Randomização dos parâmetros
               const randomLeft = Math.random() * 100;
-              const randomDuration = Math.random() * 10 + 8; // 8s a 18s
+              const randomDuration = Math.random() * 10 + 8;
               const randomDelay = Math.random() * -20;
-              const randomSize = Math.random() * 8 + 10; // 10px a 18px
-              const isPurple = Math.random() > 0.7; // 30% de chance de ser roxo
+              const randomSize = Math.random() * 8 + 10;
+              const isPurple = Math.random() > 0.7; 
 
               return (
                 <div 
@@ -183,12 +183,11 @@ export default function Portfolio() {
                     animationDuration: `${randomDuration}s`, 
                     animationDelay: `${randomDelay}s`,
                     fontSize: `${randomSize}px`,
-                    color: isPurple ? '#a855f7' : '#0ea5e9', // Purple-500 ou Sky-500
-                    textShadow: isPurple ? '0 0 8px rgba(168, 85, 247, 0.4)' : '0 0 8px rgba(14, 165, 233, 0.4)', // Efeito Neon
+                    color: isPurple ? '#a855f7' : '#0ea5e9', 
+                    textShadow: isPurple ? '0 0 8px rgba(168, 85, 247, 0.4)' : '0 0 8px rgba(14, 165, 233, 0.4)',
                     opacity: Math.random() * 0.5 + 0.1
                   }}
                 >
-                  {/* Mistura de binário, hex e palavras-chave */}
                   {'01 AF 3C /> fn const var if else return 01 FF 00'}
                 </div>
               )
@@ -227,7 +226,7 @@ export default function Portfolio() {
       <nav className="fixed top-0 w-full z-50 bg-[#050505]/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent cursor-default">
-            iKevinsz
+            Kevin Fiorelo
           </span>
           
           <div className="flex items-center gap-6">
@@ -295,7 +294,6 @@ export default function Portfolio() {
           </p>
 
           <div className="flex justify-center pt-4">
-            {/* BOTÃO GITHUB EM DESTAQUE (PRINCIPAL) */}
             <Link 
               href="https://github.com/iKevinsz" 
               target="_blank"
@@ -369,7 +367,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* --- SOBRE (PERSONAL) - COM FOTO --- */}
+      {/* --- SOBRE (PERSONAL) - ATUALIZADO --- */}
       <section id="sobre" className="py-32 px-6 bg-white/[0.02] border-y border-white/5 relative z-10 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto">
           
@@ -379,7 +377,6 @@ export default function Portfolio() {
             <div className="relative shrink-0 group">
                {/* Moldura da Imagem */}
                <div className="w-64 h-64 md:w-80 md:h-80 rounded-3xl overflow-hidden border-2 border-white/10 shadow-2xl z-10 relative group-hover:border-blue-500/30 transition-all duration-500">
-                  {/* URL DA FOTO: Substitua pelo caminho da sua imagem real */}
                   <img 
                     src="https://github.com/iKevinsz.png" 
                     alt="Foto de Kevin Rodrigo"
@@ -404,20 +401,20 @@ export default function Portfolio() {
             </div>
           </div>
 
-          {/* Hobby Cards (Abaixo do texto/foto) */}
+          {/* Hobby Cards ATUALIZADOS */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-20">
             <HobbyCard 
-              icon={<Gamepad2 size={32} className="text-emerald-400"/>}
+              icon={<GraduationCap size={32} className="text-blue-400"/>} // Ícone Acadêmico
               title={t.about.h1.title}
               desc={t.about.h1.desc}
             />
             <HobbyCard 
-              icon={<Tv size={32} className="text-rose-400"/>}
+              icon={<Briefcase size={32} className="text-purple-400"/>} // Ícone Trabalho
               title={t.about.h2.title}
               desc={t.about.h2.desc}
             />
             <HobbyCard 
-              icon={<Zap size={32} className="text-yellow-400"/>}
+              icon={<Gamepad2 size={32} className="text-emerald-400"/>} // Ícone Gamer
               title={t.about.h3.title}
               desc={t.about.h3.desc}
             />
@@ -561,12 +558,12 @@ function FinanceiroDemo() {
        <header className="flex flex-col xl:flex-row justify-between items-end gap-6 mb-8">
           <div>
              <div className="flex items-center gap-3 mb-3">
-               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-gray-200 shadow-sm text-xs font-bold text-gray-500">
+               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-gray-200 shadow-sm text-xs font-bold text-gray-500 cursor-default">
                   <CalendarClock size={14} className="text-blue-600" />
                   PLANEJAMENTO 2026
                </div>
              </div>
-             <h2 className="text-4xl font-extrabold text-slate-800 tracking-tight flex items-center gap-3">
+             <h2 className="text-4xl font-extrabold text-slate-800 tracking-tight flex items-center gap-3 cursor-default">
                 Visão Financeira
              </h2>
           </div>
