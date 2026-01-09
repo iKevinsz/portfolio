@@ -77,9 +77,19 @@ const translations = {
     projects: {
       title: "Interfaces em Destaque",
       subtitle: "Uma seleção de projetos onde foquei na experiência do usuário, interatividade e design responsivo.",
-      p1: { title: "Dashboard Financeiro & AI", desc: "Interface de dados rica e interativa. Gráficos animados, tabelas dinâmicas e uma integração visual limpa com o Consultor IA (Gemini)." },
-      p2: { title: "Gestão Web (ERP)", desc: "Foco total em UX Mobile. Criação de fluxos de cadastro intuitivos e relatórios visuais para facilitar a vida do lojista no celular." },
-      p3: { title: "Sistema de Feedback", desc: "Aplicação com 'Optimistic UI' para interações instantâneas. Layout limpo para votação e feedback visual imediato ao usuário." },
+      // REORDENADO: Luniére agora é o destaque principal
+      p1: { 
+        title: "Luniére Balões & Decoração", 
+        desc: "Portfólio elegante e minimalista com foco visual. Carousel automático, animações suaves e design clean para destacar as fotos do cliente." 
+      },
+      p2: { 
+        title: "Dashboard Financeiro & AI", 
+        desc: "Interface de dados rica e interativa. Gráficos animados, tabelas dinâmicas e uma integração visual limpa com o Consultor IA (Gemini)." 
+      },
+      p3: { 
+        title: "Gestão Web (ERP)", 
+        desc: "Foco total em UX Mobile. Criação de fluxos de cadastro intuitivos e relatórios visuais para facilitar a vida do lojista no celular." 
+      },
     },
     footer: {
       title: "Vamos construir algo incrível?",
@@ -116,10 +126,18 @@ const translations = {
     projects: {
       title: "Featured Interfaces",
       subtitle: "A selection of projects where I focused on user experience, interactivity, and responsive design.",
-      p1: { title: "Finance Dashboard & AI", desc: "Rich and interactive data interface. Animated charts, dynamic tables, and a clean visual integration with the AI Consultant (Gemini)." },
-      p2: { title: "Web Management (ERP)", desc: "Total focus on Mobile UX. Creation of intuitive registration flows and visual reports to make the merchant's life easier on mobile.",
+      p1: { 
+        title: "Luniére Balões & Decoração", 
+        desc: "Elegant and minimalist portfolio focused on visuals. Automatic carousel, smooth animations, and clean design to highlight client photos." 
       },
-      p3: { title: "Feedback System", desc: "Application featuring 'Optimistic UI' for instant interactions. Clean layout for voting and immediate visual feedback to the user." },
+      p2: { 
+        title: "Finance Dashboard & AI", 
+        desc: "Rich and interactive data interface. Animated charts, dynamic tables, and a clean visual integration with the AI Consultant (Gemini)." 
+      },
+      p3: { 
+        title: "Web Management (ERP)", 
+        desc: "Total focus on Mobile UX. Creation of intuitive registration flows and visual reports to make the merchant's life easier on mobile." 
+      },
     },
     footer: {
       title: "Let's build something amazing?",
@@ -340,9 +358,33 @@ export default function Portfolio() {
              <p className="text-slate-400 max-w-lg mt-4">{t.projects.subtitle}</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <ProjectCard title={t.projects.p1.title} desc={t.projects.p1.desc} tags={["Next.js", "Recharts", "UI Design"]} color="blue" hasDemo={true} onDemoClick={() => setActiveDemo(<FinanceiroDemo />)} />
-            <ProjectCard title={t.projects.p2.title} desc={t.projects.p2.desc} tags={["Mobile First", "React", "UX/UI"]} color="purple" hasDemo={true} onDemoClick={() => setActiveDemo(<GestaoDemo />)} />
-            <ProjectCard title={t.projects.p3.title} desc={t.projects.p3.desc} tags={["Optimistic UI", "Interatividade"]} color="emerald" hasDemo={true} onDemoClick={() => setActiveDemo(<FeedbackDemo />)} />
+            {/* LUNIERE - PRIMEIRO CARD, LINK EXTERNO */}
+            <ProjectCard 
+              title={t.projects.p1.title} 
+              desc={t.projects.p1.desc} 
+              tags={["Next.js", "Tailwind", "Design"]} 
+              color="purple" 
+              hasDemo={true} 
+              onDemoClick={() => window.open("https://lunieredecor.vercel.app/", "_blank")} 
+            />
+            {/* FINANCEIRO - SEGUNDO CARD, MODAL */}
+            <ProjectCard 
+              title={t.projects.p2.title} 
+              desc={t.projects.p2.desc} 
+              tags={["Next.js", "Recharts", "UI Design"]} 
+              color="blue" 
+              hasDemo={true} 
+              onDemoClick={() => setActiveDemo(<FinanceiroDemo />)} 
+            />
+            {/* GESTÃO - TERCEIRO CARD, MODAL */}
+            <ProjectCard 
+              title={t.projects.p3.title} 
+              desc={t.projects.p3.desc} 
+              tags={["Mobile First", "React", "UX/UI"]} 
+              color="emerald" 
+              hasDemo={true} 
+              onDemoClick={() => setActiveDemo(<GestaoDemo />)} 
+            />
           </div>
         </div>
       </section>
@@ -365,7 +407,7 @@ export default function Portfolio() {
   );
 }
 
-// --- SPOTLIGHT TEXT (CORRIGIDO: Corte do 'g') ---
+// --- SPOTLIGHT TEXT ---
 function SpotlightText({ children, className = "" }: { children: React.ReactNode, className?: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -488,4 +530,3 @@ const ProjectImageViewer = ({ src, alt }: { src: string; alt: string }) => (
 
 function FinanceiroDemo() { return (<ProjectImageViewer src="/dash.png" alt="Preview Dashboard Financeiro" />); }
 function GestaoDemo() { return (<ProjectImageViewer src="/ERP.png" alt="Preview Gestão ERP" />); }
-function FeedbackDemo() { return (<ProjectImageViewer src="sug.png" alt="Preview Sistema de Feedback" />); }
