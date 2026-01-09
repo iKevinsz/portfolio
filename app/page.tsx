@@ -11,46 +11,114 @@ import {
   Database,
   Bot,
   LayoutTemplate,
-  Gamepad2,
   ChevronRight,
   Terminal,
-  Cpu,
-  Globe,
   X,
-  Wallet,
-  ArrowUpRight,
-  ArrowDownRight,
-  CalendarClock,
-  Search,
-  Check,
-  ThumbsUp,
-  Sparkles,
-  MessageSquare,
-  CheckCircle2,
-  LayoutDashboard,
-  ShoppingBag,
-  UtensilsCrossed,
-  FileText,
-  Settings,
-  Filter,
-  List,
-  Grid,
-  Pencil,
-  Trash2,
-  Plus,
   Play,
   GraduationCap,
   Briefcase,
   Palette,
+  Monitor,
+  Users,
+  Eye,
+  Image as ImageIcon,
+  // Novos ícones para o Stack
+  FileCode2,
+  Triangle,
+  GitBranch,
+  Brush,
+  Figma,
 } from "lucide-react";
+
+// --- DADOS DA STACK (Mapeamento de Ícones e Cores) ---
+const TECH_STACK = [
+  {
+    name: "HTML5",
+    icon: <FileCode2 />,
+    color: "text-orange-500",
+    bg: "group-hover:bg-orange-500/10",
+  },
+  {
+    name: "CSS3",
+    icon: <Palette />,
+    color: "text-blue-500",
+    bg: "group-hover:bg-blue-500/10",
+  },
+  {
+    name: "JavaScript",
+    icon: <Code2 />,
+    color: "text-yellow-400",
+    bg: "group-hover:bg-yellow-400/10",
+  },
+  {
+    name: "TypeScript",
+    icon: <Terminal />,
+    color: "text-blue-400",
+    bg: "group-hover:bg-blue-400/10",
+  },
+  {
+    name: "React",
+    icon: <Code2 />,
+    color: "text-cyan-400",
+    bg: "group-hover:bg-cyan-400/10",
+  },
+  {
+    name: "Next.js",
+    icon: <Code2 />,
+    color: "text-white",
+    bg: "group-hover:bg-white/10",
+  },
+  {
+    name: "Python",
+    icon: <FileCode2 />,
+    color: "text-yellow-300",
+    bg: "group-hover:bg-yellow-300/10",
+  },
+  {
+    name: "Tailwind",
+    icon: <LayoutTemplate />,
+    color: "text-cyan-300",
+    bg: "group-hover:bg-cyan-300/10",
+  },
+  {
+    name: "Figma",
+    icon: <Figma />,
+    color: "text-pink-500",
+    bg: "group-hover:bg-pink-500/10",
+  },
+  {
+    name: "PostgreSQL",
+    icon: <Database />,
+    color: "text-blue-300",
+    bg: "group-hover:bg-blue-300/10",
+  },
+  {
+    name: "Vercel",
+    icon: <Triangle />,
+    color: "text-white",
+    bg: "group-hover:bg-white/10",
+  },
+  {
+    name: "MUI",
+    icon: <Brush />,
+    color: "text-blue-500",
+    bg: "group-hover:bg-blue-500/10",
+  },
+  {
+    name: "Git",
+    icon: <GitBranch />,
+    color: "text-orange-400",
+    bg: "group-hover:bg-orange-400/10",
+  },
+];
 
 // --- TEXTOS E TRADUÇÕES ---
 const translations = {
   pt: {
     nav: {
+      sobre: "Sobre",
       projetos: "Projetos",
       stack: "Stack",
-      sobre: "Sobre",
       contato: "Contato",
     },
     hero: {
@@ -58,18 +126,61 @@ const translations = {
       role: "Desenvolvedor",
       role2: "Front End",
       subtitle: "& Especialista em React",
-      githubBtn: "Ver meu GitHub", // <--- ADICIONADO
+      githubBtn: "Ver meu GitHub",
       desc: (
         <>
-          Focado em criar <strong className="text-slate-100">Interfaces de Alta Fidelidade</strong> e experiências fluidas. 
-          Especialista em <strong className="text-slate-100">Next.js</strong>, 
-          <strong className="text-slate-100"> Tailwind CSS</strong> e 
+          Focado em criar{" "}
+          <strong className="text-slate-100">
+            Interfaces de Alta Fidelidade
+          </strong>{" "}
+          e experiências fluidas. Especialista em{" "}
+          <strong className="text-slate-100">Next.js</strong>,
+          <strong className="text-slate-100"> Tailwind CSS</strong> e
           <strong className="text-slate-100"> UX/UI Design</strong>.
         </>
       ),
       cta: "Vamos conversar",
     },
     stack: "Tecnologias que domino",
+    about: {
+      title: "Sobre mim",
+      experience: {
+        title: "Experiência",
+        desc: "Desenvolvedor front-end com experiência em criação de interfaces modernas e responsivas. Especializado em React e seu ecossistema, sempre buscando as melhores práticas e novas tecnologias.",
+      },
+      hardSkills: {
+        title: "Habilidades Técnicas",
+        list: [
+          "HTML5",
+          "CSS3",
+          "JavaScript",
+          "TypeScript",
+          "React",
+          "Next.js",
+          "Python",
+          "Tailwind",
+          "Figma",
+          "PostgreSQL",
+          "Vercel",
+          "MUI",
+          "Git",
+        ],
+      },
+      softSkills: {
+        title: "Habilidades Interpessoais",
+        desc: "Comunicação eficaz, trabalho em equipe, resolução de problemas, adaptabilidade e aprendizado contínuo.",
+      },
+      education: {
+        title: "Formação Acadêmica",
+        items: [
+          {
+            year: "2021 - 2024",
+            course: "Análise e Desenvolvimento de Sistemas",
+            school: "FATEC Guaratinguetá",
+          },
+        ],
+      },
+    },
     projects: {
       title: "Interfaces em Destaque",
       subtitle:
@@ -87,22 +198,6 @@ const translations = {
         desc: "Aplicação com 'Optimistic UI' para interações instantâneas. Layout limpo para votação e feedback visual imediato ao usuário.",
       },
     },
-    about: {
-      title: "Quem é o Kevin?",
-      desc: "Desenvolvedor Front End apaixonado por pixels. Acredito que uma boa interface não é apenas bonita, mas funcional e performática. Uso minha base técnica para transformar designs complexos em código limpo e escalável.",
-      h1: {
-        title: "Formado na FATEC",
-        desc: "Base sólida em engenharia de software, aplicada para construir arquiteturas de front-end organizadas e manuteníveis.",
-      },
-      h2: {
-        title: "Software House",
-        desc: "Atuo no front-end de sistemas complexos, garantindo que milhares de usuários tenham uma experiência fluida e intuitiva.",
-      },
-      h3: {
-        title: "Gamer & Criativo",
-        desc: "A criatividade dos jogos inspira meu design. Busco sempre o 'Pixel Perfect' e a melhor estratégia.",
-      },
-    },
     footer: {
       title: "Vamos construir algo incrível?",
       desc: "Estou disponível para criar interfaces modernas, landing pages ou refatorar seu front-end.",
@@ -111,28 +206,66 @@ const translations = {
   },
   en: {
     nav: {
-      projects: "Projects",
+      sobre: "About",
+      projetos: "Projects",
       stack: "Stack",
-      about: "About",
-      contact: "Contact",
+      contato: "Contact",
     },
     hero: {
       status: "Available for projects",
       role: "Front End",
       role2: "Developer",
       subtitle: "& React Specialist",
-      githubBtn: "Check out my GitHub", // <--- ADICIONADO
+      githubBtn: "Check out my GitHub",
       desc: (
         <>
-          Focused on building <strong className="text-slate-100">High Fidelity Interfaces</strong> and fluid experiences. 
-          Specialist in <strong className="text-slate-100">Next.js</strong>, 
-          <strong className="text-slate-100"> Tailwind CSS</strong> and 
+          Focused on building{" "}
+          <strong className="text-slate-100">High Fidelity Interfaces</strong>{" "}
+          and fluid experiences. Specialist in{" "}
+          <strong className="text-slate-100">Next.js</strong>,
+          <strong className="text-slate-100"> Tailwind CSS</strong> and
           <strong className="text-slate-100"> UX/UI Design</strong>.
         </>
       ),
       cta: "Let's talk",
     },
     stack: "Technologies I master",
+    about: {
+      title: "About Me",
+      experience: {
+        title: "Experience",
+        desc: "Front-end developer experienced in creating modern and responsive interfaces. Specialized in React and its ecosystem, always seeking best practices and new technologies.",
+      },
+      hardSkills: {
+        title: "Technical Skills (Hard Skills)",
+        list: [
+          "HTML5",
+          "CSS3",
+          "JavaScript",
+          "TypeScript",
+          "React",
+          "Next.js",
+          "Python",
+          "Tailwind",
+          "MUI",
+          "Git",
+        ],
+      },
+      softSkills: {
+        title: "Interpersonal Skills (Soft Skills)",
+        desc: "Effective communication, teamwork, problem-solving, adaptability, and continuous learning.",
+      },
+      education: {
+        title: "Academic Education",
+        items: [
+          {
+            year: "2021 - 2024",
+            course: "Systems Analysis and Development",
+            school: "FATEC Guaratinguetá",
+          },
+        ],
+      },
+    },
     projects: {
       title: "Featured Interfaces",
       subtitle:
@@ -148,22 +281,6 @@ const translations = {
       p3: {
         title: "Feedback System",
         desc: "Application featuring 'Optimistic UI' for instant interactions. Clean layout for voting and immediate visual feedback to the user.",
-      },
-    },
-    about: {
-      title: "Who is Kevin?",
-      desc: "Front End Developer passionate about pixels. I believe a good interface isn't just beautiful, but functional and performant. I use my technical background to turn complex designs into clean, scalable code.",
-      h1: {
-        title: "FATEC Graduate",
-        desc: "Solid foundation in software engineering, applied to building organized and maintainable front-end architectures.",
-      },
-      h2: {
-        title: "Software House",
-        desc: "I work on the front-end of complex systems, ensuring thousands of users have a fluid and intuitive experience.",
-      },
-      h3: {
-        title: "Gamer & Creative",
-        desc: "Gaming and anime creativity inspire my design. I always strive for 'Pixel Perfect' and the best strategy.",
       },
     },
     footer: {
@@ -186,13 +303,31 @@ export default function Portfolio() {
 
   return (
     <main className="min-h-screen bg-[#050505] text-slate-200 font-sans selection:bg-blue-500/30 overflow-x-hidden relative">
-      {/* --- CSS ANIMATIONS (MATRIX & GLOW) --- */}
+      {/* --- CSS ANIMATIONS (MATRIX & GLOW & SCROLL) --- */}
       <style jsx global>{`
         @keyframes matrix-fall {
-          0% { top: -20%; opacity: 0; }
-          20% { opacity: 1; }
-          80% { opacity: 1; }
-          100% { top: 120%; opacity: 0; }
+          0% {
+            top: -20%;
+            opacity: 0;
+          }
+          20% {
+            opacity: 1;
+          }
+          80% {
+            opacity: 1;
+          }
+          100% {
+            top: 120%;
+            opacity: 0;
+          }
+        }
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
         }
         .code-rain {
           position: fixed;
@@ -205,7 +340,6 @@ export default function Portfolio() {
           text-orientation: upright;
           white-space: nowrap;
         }
-        /* Grid Background Pattern */
         .bg-grid {
           background-size: 40px 40px;
           background-image: linear-gradient(
@@ -219,22 +353,23 @@ export default function Portfolio() {
               transparent 1px
             );
         }
+        .animate-scroll {
+          animation: scroll 40s linear infinite;
+        }
+        .animate-scroll:hover {
+          animation-play-state: paused;
+        }
       `}</style>
 
       {/* --- BACKGROUND EFFECTS --- */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden bg-[#050505]">
-        {/* 1. Cyber Grid (Malha de fundo) */}
         <div className="absolute inset-0 bg-grid z-0" />
-
-        {/* 2. Máscara Radial (Vignette) para suavizar as bordas */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-[#050505] z-0" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-transparent to-[#050505] z-0" />
-
-        {/* 3. Blobs de Luz (Coloridos e animados) */}
         <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px] animate-pulse" />
         <div className="absolute bottom-[-10%] left-[-5%] w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[120px] animate-pulse" />
 
-        {/* 4. CHUVA DE CÓDIGO (Matrix Neon) */}
+        {/* MATRIX RAIN */}
         <div className="absolute inset-0 z-0 opacity-40">
           {Array.from({ length: 25 }).map((_, i) => {
             const randomLeft = Math.random() * 100;
@@ -266,20 +401,15 @@ export default function Portfolio() {
         </div>
       </div>
 
-      {/* --- MODAL DEMO --- */}
+      {/* --- MODAL DE IMAGEM (VIEWER) --- */}
       {activeDemo && (
-        <div className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-300">
-          <div className="bg-[#0F0F0F] w-full max-w-6xl h-[85vh] rounded-3xl border border-white/10 overflow-hidden flex flex-col shadow-2xl animate-in zoom-in-95 duration-300">
-            {/* Header do Modal */}
-            <div className="h-14 border-b border-white/10 flex justify-between items-center px-6 bg-[#151515]">
-              <div className="flex gap-2">
-                <div className="w-3 h-3 rounded-full bg-red-500/50 hover:bg-red-500 transition-colors" />
-                <div className="w-3 h-3 rounded-full bg-yellow-500/50 hover:bg-yellow-500 transition-colors" />
-                <div className="w-3 h-3 rounded-full bg-green-500/50 hover:bg-green-500 transition-colors" />
+        <div className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-300">
+          <div className="bg-[#0F0F0F] w-full max-w-6xl h-[85vh] rounded-3xl border border-white/10 overflow-hidden flex flex-col shadow-2xl animate-in zoom-in-95 duration-300 relative">
+            <div className="h-14 border-b border-white/10 flex justify-between items-center px-6 bg-[#151515] z-20">
+              <div className="flex gap-2 items-center text-slate-400 text-xs font-mono">
+                <ImageIcon size={14} />
+                <span>PROJECT PREVIEW</span>
               </div>
-              <span className="text-xs font-mono text-slate-500 tracking-wider">
-                LIVE PREVIEW • INTERFACE MODE
-              </span>
               <button
                 onClick={() => setActiveDemo(null)}
                 className="p-2 hover:bg-white/10 rounded-full transition-colors text-slate-400 hover:text-white cursor-pointer"
@@ -287,8 +417,7 @@ export default function Portfolio() {
                 <X size={18} />
               </button>
             </div>
-            {/* Conteúdo da Demo */}
-            <div className="flex-1 overflow-hidden relative bg-[#F8FAFC]">
+            <div className="flex-1 overflow-hidden relative bg-[#050505] flex items-center justify-center p-4">
               {activeDemo}
             </div>
           </div>
@@ -298,23 +427,35 @@ export default function Portfolio() {
       {/* --- NAVBAR --- */}
       <nav className="fixed top-0 w-full z-50 bg-[#050505]/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent cursor-default">
-            Kevin Fiorelo
-          </span>
+          {/* LOGO + NOME */}
+          <div className="flex items-center gap-3 group cursor-default">
+            {/* Container do Logo */}
+            <div className="relative w-9 h-9 md:w-10 md:h-10 rounded-xl overflow-hidden border border-white/10 shadow-[0_0_15px_-3px_rgba(59,130,246,0.3)] group-hover:shadow-[0_0_20px_-3px_rgba(168,85,247,0.4)] transition-all duration-300">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 z-10"></div>
+              <img
+                src="/icon.jpg"
+                alt="Logo K"
+                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+
+            <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+              Kevin Fiorelo
+            </span>
+          </div>
 
           <div className="flex items-center gap-6">
             <div className="hidden md:flex gap-8 text-sm font-medium text-slate-400">
-              {/* @ts-ignore */}
-              <NavLink href="#projetos">{t.nav.projetos}</NavLink>
               {/* @ts-ignore */}
               <NavLink href="#stack">{t.nav.stack}</NavLink>
               {/* @ts-ignore */}
               <NavLink href="#sobre">{t.nav.sobre}</NavLink>
               {/* @ts-ignore */}
+              <NavLink href="#projetos">{t.nav.projetos}</NavLink>
+              {/* @ts-ignore */}
               <NavLink href="#contato">{t.nav.contato}</NavLink>
             </div>
 
-            {/* SWITCH DE IDIOMA REDESENHADO */}
             <button
               onClick={toggleLang}
               className="relative w-20 h-9 bg-white/5 rounded-full border border-white/10 flex items-center p-1 transition-all hover:border-white/30 hover:bg-white/10 focus:outline-none cursor-pointer active:scale-95 shadow-inner"
@@ -324,11 +465,22 @@ export default function Portfolio() {
                 className={`absolute w-8 h-7 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full shadow-md transform transition-all duration-300 flex items-center justify-center text-[10px] font-black text-white ${
                   lang === "en" ? "translate-x-10" : "translate-x-0"
                 }`}
-              >
-              </div>
+              ></div>
               <div className="w-full flex justify-between px-2.5 text-[10px] font-bold select-none z-10">
-                <span className={`transition-colors duration-300 ${lang === 'pt' ? 'text-white' : 'text-slate-500'}`}>PT</span>
-                <span className={`transition-colors duration-300 ${lang === 'en' ? 'text-white' : 'text-slate-500'}`}>EN</span>
+                <span
+                  className={`transition-colors duration-300 ${
+                    lang === "pt" ? "text-white" : "text-slate-500"
+                  }`}
+                >
+                  PT
+                </span>
+                <span
+                  className={`transition-colors duration-300 ${
+                    lang === "en" ? "text-white" : "text-slate-500"
+                  }`}
+                >
+                  EN
+                </span>
               </div>
             </button>
 
@@ -371,7 +523,6 @@ export default function Portfolio() {
               className="px-10 py-4 bg-white text-slate-950 font-bold rounded-full hover:bg-slate-200 hover:scale-105 transition-all flex items-center justify-center gap-3 cursor-pointer shadow-lg shadow-white/10"
             >
               <Github size={20} />
-              {/* BOTÃO DO GITHUB COM TEXTO DINÂMICO */}
               <span>{t.hero.githubBtn}</span>
               <ChevronRight
                 size={18}
@@ -383,30 +534,149 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* --- TECH STACK (REORDENADO PARA FRONT) --- */}
+      {/* --- TECH STACK (INFINITE MARQUEE) --- */}
       <section
         id="stack"
-        className="py-12 border-y border-white/5 bg-white/[0.02] relative z-10 backdrop-blur-sm"
+        className="py-16 border-y border-white/5 bg-white/[0.02] relative z-10 backdrop-blur-sm overflow-hidden"
       >
-        <div className="max-w-6xl mx-auto px-6">
-          <p className="text-center text-slate-500 text-xs font-bold uppercase tracking-[0.2em] mb-10">
+        <div className="max-w-full mx-auto">
+          <p className="text-center text-slate-500 text-xs font-bold uppercase tracking-[0.2em] mb-12">
             {t.stack}
           </p>
-          <div className="flex flex-wrap justify-center gap-8 md:gap-16">
-            {/* FRONTEND PRIMEIRO */}
-            <TechItem icon={<Code2 />} label="Next.js 15" color="text-white" />
-            <TechItem icon={<LayoutTemplate />} label="Tailwind" color="text-cyan-400" />
-            <TechItem icon={<Terminal />} label="TypeScript" color="text-blue-500" />
-            <TechItem icon={<Palette />} label="UX/UI Design" color="text-pink-400" /> 
-            
-            {/* INTEGRAÇÕES DEPOIS */}
-            <TechItem icon={<Bot />} label="Gemini AI" color="text-purple-400" />
-            <TechItem icon={<Database />} label="Prisma ORM" color="text-teal-400" />
+
+          <div className="relative flex w-full">
+            <div className="absolute left-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-r from-[#050505] to-transparent pointer-events-none"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-l from-[#050505] to-transparent pointer-events-none"></div>
+
+            <div className="flex gap-8 animate-scroll w-max hover:[animation-play-state:paused]">
+              {[...TECH_STACK, ...TECH_STACK].map((tech, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col items-center justify-center gap-3 min-w-[120px] group cursor-default"
+                >
+                  <div
+                    className={`p-4 bg-white/5 rounded-2xl border border-white/5 ${tech.bg} transition-colors duration-300`}
+                  >
+                    <div
+                      className={`${tech.color} transform group-hover:scale-110 transition-transform duration-300`}
+                    >
+                      {tech.icon}
+                    </div>
+                  </div>
+                  <span className="text-xs font-bold text-slate-500 group-hover:text-white transition-colors uppercase tracking-wider">
+                    {tech.name}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* --- PROJETOS --- */}
+      {/* --- SOBRE (ALINHADO COM MAX-W-6XL) --- */}
+      <section
+        id="sobre"
+        className="py-32 px-6 bg-white/[0.02] relative z-10 backdrop-blur-sm border-b border-white/5"
+      >
+        <div className="max-w-6xl mx-auto">
+          {" "}
+          {/* ALINHADO AQUI */}
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center">
+            {t.about.title}
+          </h2>
+          <div className="flex flex-col md:flex-row gap-12 items-start">
+            {/* LADO ESQUERDO: FOTO */}
+            <div className="w-full md:w-1/3 flex flex-col items-center">
+              <div className="relative group w-64 h-64 md:w-full md:h-auto aspect-square mb-6">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-600 rounded-3xl rotate-3 group-hover:rotate-6 transition-transform opacity-50 blur-lg"></div>
+                <img
+                  src="https://github.com/iKevinsz.png"
+                  alt="Kevin Rodrigo Profile"
+                  className="rounded-3xl shadow-2xl w-full h-full object-cover border-2 border-white/10 relative z-10 grayscale hover:grayscale-0 transition-all duration-500"
+                />
+              </div>
+
+              <div className="flex gap-4">
+                <SocialBtnSimple
+                  href="https://github.com/iKevinsz"
+                  icon={<Github size={20} />}
+                />
+                <SocialBtnSimple
+                  href="https://linkedin.com/in/kevin-rodrigo-000632209/"
+                  icon={<Linkedin size={20} />}
+                />
+                <SocialBtnSimple
+                  href="https://instagram.com/kev1n_x/"
+                  icon={<Instagram size={20} />}
+                />
+              </div>
+            </div>
+
+            {/* LADO DIREITO: INFORMAÇÕES */}
+            <div className="w-full md:w-2/3 space-y-10">
+              {/* Experiência */}
+              <div>
+                <h3 className="text-blue-400 font-bold flex items-center gap-2 mb-3">
+                  <Code2 size={20} /> {t.about.experience.title}
+                </h3>
+                <p className="text-slate-300 leading-relaxed text-lg">
+                  {t.about.experience.desc}
+                </p>
+              </div>
+
+              {/* Hard Skills */}
+              <div>
+                <h3 className="text-blue-400 font-bold flex items-center gap-2 mb-4">
+                  <Monitor size={20} /> {t.about.hardSkills.title}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {t.about.hardSkills.list.map((skill: string) => (
+                    <span
+                      key={skill}
+                      className="px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-300 text-sm font-medium hover:bg-blue-500/20 transition-colors cursor-default"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Soft Skills */}
+              <div>
+                <h3 className="text-blue-400 font-bold flex items-center gap-2 mb-3">
+                  <Users size={20} /> {t.about.softSkills.title}
+                </h3>
+                <p className="text-slate-400 leading-relaxed">
+                  {t.about.softSkills.desc}
+                </p>
+              </div>
+
+              {/* Formação */}
+              <div>
+                <h3 className="text-blue-400 font-bold flex items-center gap-2 mb-6">
+                  <GraduationCap size={20} /> {t.about.education.title}
+                </h3>
+                <div className="space-y-6 border-l border-white/10 pl-6 ml-2">
+                  {t.about.education.items.map((item: any, idx: number) => (
+                    <div key={idx} className="relative">
+                      <div className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-blue-500 border-4 border-[#050505]"></div>
+                      <span className="text-xs font-bold text-slate-500 uppercase tracking-widest block mb-1">
+                        {item.year}
+                      </span>
+                      <h4 className="text-white font-bold text-lg">
+                        {item.course}
+                      </h4>
+                      <p className="text-slate-400 text-sm">{item.school}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- PROJETOS (ALINHADO COM MAX-W-6XL) --- */}
       <section id="projetos" className="py-32 px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-end justify-between mb-16">
@@ -449,78 +719,11 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* --- SOBRE (PERSONAL) --- */}
-      <section
-        id="sobre"
-        className="py-32 px-6 bg-white/[0.02] border-y border-white/5 relative z-10 backdrop-blur-sm"
-      >
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-12 mb-16 animate-in fade-in slide-in-from-bottom-8 duration-1000">
-            {/* COLUNA DA FOTO */}
-            <div className="relative shrink-0 group">
-              {/* Moldura da Imagem */}
-              <div className="w-64 h-64 md:w-80 md:h-80 rounded-3xl overflow-hidden border-2 border-white/10 shadow-2xl z-10 relative group-hover:border-blue-500/30 transition-all duration-500">
-                <img
-                  src="https://github.com/iKevinsz.png"
-                  alt="Foto de Kevin Rodrigo"
-                  className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100"
-                />
-              </div>
-              {/* Efeito de Brilho atrás da foto */}
-              <div className="absolute inset-0 translate-x-4 translate-y-4 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-3xl -z-10 blur-2xl opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
-            </div>
-
-            {/* COLUNA DO TEXTO */}
-            <div className="flex-1 text-center md:text-left">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                {t.about.title}
-              </h2>
-              <p className="text-slate-400 text-lg leading-relaxed mb-8">
-                {t.about.desc}
-              </p>
-              {/* Botões Sociais Pequenos */}
-              <div className="flex gap-4 justify-center md:justify-start opacity-50 hover:opacity-100 transition-opacity">
-                <a
-                  href="https://github.com/iKevinsz"
-                  target="_blank"
-                  className="hover:text-white cursor-pointer"
-                >
-                  <Github size={20} />
-                </a>
-                <a
-                  href="https://linkedin.com/in/kevin-rodrigo-000632209/"
-                  target="_blank"
-                  className="hover:text-blue-400 cursor-pointer"
-                >
-                  <Linkedin size={20} />
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Hobby Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-20">
-            <HobbyCard
-              icon={<GraduationCap size={32} className="text-blue-400" />}
-              title={t.about.h1.title}
-              desc={t.about.h1.desc}
-            />
-            <HobbyCard
-              icon={<Briefcase size={32} className="text-purple-400" />}
-              title={t.about.h2.title}
-              desc={t.about.h2.desc}
-            />
-            <HobbyCard
-              icon={<Gamepad2 size={32} className="text-emerald-400" />}
-              title={t.about.h3.title}
-              desc={t.about.h3.desc}
-            />
-          </div>
-        </div>
-      </section>
-
       {/* --- FOOTER --- */}
-      <footer id="contato" className="py-20 bg-[#050505] relative z-10">
+      <footer
+        id="contato"
+        className="py-20 bg-[#050505] relative z-10 border-t border-white/5"
+      >
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold text-white mb-6">
             {t.footer.title}
@@ -621,11 +824,11 @@ function ProjectCard({ title, desc, tags, color, onDemoClick, hasDemo }: any) {
         {hasDemo && (
           <button
             onClick={onDemoClick}
-            className="relative group/btn flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full text-white shadow-lg hover:shadow-blue-500/50 hover:scale-110 transition-all duration-300 cursor-pointer"
-            aria-label="Executar Demo"
+            className="relative group/btn flex items-center justify-center w-12 h-12 bg-white/5 border border-white/10 rounded-full text-slate-300 hover:text-white hover:bg-blue-600 hover:border-blue-500 transition-all duration-300 cursor-pointer"
+            aria-label="Ver Imagem do Projeto"
+            title="Ver preview do projeto"
           >
-            <Play size={20} className="fill-white ml-0.5" />
-            <span className="absolute -inset-1 rounded-full bg-blue-500/30 blur-md opacity-0 group-hover/btn:opacity-100 transition-opacity animate-pulse"></span>
+            <Eye size={18} />
           </button>
         )}
       </div>
@@ -651,18 +854,6 @@ function ProjectCard({ title, desc, tags, color, onDemoClick, hasDemo }: any) {
   );
 }
 
-function HobbyCard({ icon, title, desc }: any) {
-  return (
-    <div className="bg-[#0F0F0F] p-8 rounded-3xl border border-white/5 hover:border-white/10 hover:bg-white/[0.03] transition-all group cursor-default">
-      <div className="mb-6 flex justify-center group-hover:scale-110 transition-transform duration-300">
-        {icon}
-      </div>
-      <h4 className="font-bold text-white mb-3 text-lg">{title}</h4>
-      <p className="text-sm text-slate-400 leading-relaxed">{desc}</p>
-    </div>
-  );
-}
-
 function SocialBtn({ href, icon, label }: any) {
   return (
     <a
@@ -676,725 +867,53 @@ function SocialBtn({ href, icon, label }: any) {
   );
 }
 
-// --- DEMO COMPONENTS (MOCKS INTERATIVOS) ---
-// (Mantive os Demos iguais, pois eles já demonstram boa UI)
+function SocialBtnSimple({ href, icon }: any) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      className="flex items-center justify-center w-10 h-10 bg-white/5 border border-white/10 rounded-full text-slate-400 hover:text-white hover:bg-blue-600 hover:border-blue-600 transition-all cursor-pointer"
+    >
+      {icon}
+    </a>
+  );
+}
 
-// 1. MOCK FINANCEIRO
+// --- VISUALIZADORES DE IMAGEM (PLACEHOLDERS) ---
+
+const ProjectImageViewer = ({ src, alt }: { src: string; alt: string }) => (
+  <div className="w-full h-full flex items-center justify-center p-4">
+    <img
+      src={src}
+      alt={alt}
+      className="max-w-full max-h-full object-contain rounded-lg shadow-2xl border border-white/10"
+    />
+  </div>
+);
+
 function FinanceiroDemo() {
-  const [mesAtivo, setMesAtivo] = useState<number | null>(null);
-
-  const dadosGrafico = [
-    { mes: "JAN", entrada: 65, saida: 40 },
-    { mes: "FEV", entrada: 85, saida: 75 },
-    { mes: "MAR", entrada: 55, saida: 60 },
-    { mes: "ABR", entrada: 45, saida: 70 },
-    { mes: "MAI", entrada: 45, saida: 35 },
-    { mes: "JUN", entrada: 45, saida: 35 },
-    { mes: "JUL", entrada: 45, saida: 35 },
-    { mes: "AGO", entrada: 45, saida: 35 },
-    { mes: "SET", entrada: 45, saida: 35 },
-    { mes: "OUT", entrada: 45, saida: 35 },
-    { mes: "NOV", entrada: 45, saida: 25 },
-    { mes: "DEZ", entrada: 45, saida: 25 },
-  ];
-
   return (
-    <div className="min-h-full bg-[#F8FAFC] p-4 md:p-8 font-sans text-slate-900 flex flex-col">
-      {/* Header Section */}
-      <header className="flex flex-col xl:flex-row justify-between items-end gap-6 mb-8">
-        <div>
-          <div className="flex items-center gap-3 mb-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-gray-200 shadow-sm text-xs font-bold text-gray-500 cursor-default">
-              <CalendarClock size={14} className="text-blue-600" />
-              PLANEJAMENTO 2026
-            </div>
-          </div>
-          <h2 className="text-4xl font-extrabold text-slate-800 tracking-tight flex items-center gap-3 cursor-default">
-            Visão Financeira
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full xl:w-auto">
-          <div className="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm min-w-[200px] cursor-default">
-            <div className="flex justify-between items-start mb-2">
-              <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">
-                Entradas
-              </span>
-              <div className="p-1.5 bg-emerald-50 rounded-full text-emerald-500">
-                <ArrowUpRight size={16} />
-              </div>
-            </div>
-            <div className="text-2xl font-black text-slate-800">
-              R$ 26.745,93
-            </div>
-          </div>
-
-          <div className="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm min-w-[200px] cursor-default">
-            <div className="flex justify-between items-start mb-2">
-              <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">
-                Saídas
-              </span>
-              <div className="p-1.5 bg-rose-50 rounded-full text-rose-500">
-                <ArrowDownRight size={16} />
-              </div>
-            </div>
-            <div className="text-2xl font-black text-slate-800">
-              R$ 23.534,92
-            </div>
-          </div>
-
-          <div className="bg-slate-900 p-5 rounded-3xl border border-slate-800 shadow-xl min-w-[200px] text-white cursor-default">
-            <div className="flex justify-between items-start mb-2">
-              <span className="text-[10px] font-black uppercase tracking-widest opacity-60">
-                Saldo
-              </span>
-              <div className="p-1.5 bg-white/10 rounded-full">
-                <Wallet size={16} />
-              </div>
-            </div>
-            <div className="text-2xl font-black">R$ 3.211,01</div>
-          </div>
-        </div>
-      </header>
-
-      {/* Área dos Gráficos */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-        {/* Gráfico de Barras */}
-        <div className="lg:col-span-2 bg-white rounded-3xl p-6 shadow-sm border border-slate-100 flex flex-col justify-between h-[350px] cursor-default">
-          <div className="flex justify-between items-center mb-4">
-            <h3 className="font-bold text-slate-800">Fluxo de Caixa Anual</h3>
-            <div className="flex gap-3 text-[10px] font-bold uppercase">
-              <div className="flex items-center gap-1">
-                <div className="w-2 h-2 rounded-full bg-emerald-500"></div>{" "}
-                Receita
-              </div>
-              <div className="flex items-center gap-1">
-                <div className="w-2 h-2 rounded-full bg-rose-500"></div> Despesa
-              </div>
-            </div>
-          </div>
-
-          {/* Container das Barras */}
-          <div className="flex items-end justify-between h-full gap-2 pt-4 pb-2">
-            {dadosGrafico.map((d, i) => (
-              <div
-                key={d.mes}
-                onClick={() => setMesAtivo(mesAtivo === i ? null : i)}
-                className={`flex flex-col items-center gap-2 w-full h-full justify-end cursor-pointer group transition-all duration-300 ${
-                  mesAtivo !== null && mesAtivo !== i
-                    ? "opacity-30 grayscale"
-                    : ""
-                }`}
-              >
-                <div className="flex items-end gap-1 h-full w-full justify-center">
-                  {/* Barra Verde */}
-                  <div
-                    style={{ height: `${d.entrada}%` }}
-                    className="w-1.5 md:w-3 bg-emerald-500 rounded-t-md transition-all duration-500 group-hover:bg-emerald-400"
-                  ></div>
-                  {/* Barra Vermelha */}
-                  <div
-                    style={{ height: `${d.saida}%` }}
-                    className="w-1.5 md:w-3 bg-rose-500 rounded-t-md transition-all duration-500 group-hover:bg-rose-400"
-                  ></div>
-                </div>
-                <span className="text-[9px] md:text-[10px] font-bold text-slate-400">
-                  {d.mes}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Gráfico de Rosca (Donut Chart) */}
-        <div className="bg-white rounded-3xl p-6 shadow-sm border border-slate-100 flex flex-col items-center justify-center relative h-[350px] cursor-default">
-          <h3 className="font-bold text-slate-800 self-start mb-6">
-            Maiores Despesas
-          </h3>
-
-          {/* Círculo SVG robusto */}
-          <div className="relative w-48 h-48">
-            <svg
-              viewBox="0 0 100 100"
-              className="transform -rotate-90 w-full h-full"
-            >
-              <circle
-                cx="50"
-                cy="50"
-                r="40"
-                fill="transparent"
-                stroke="#f1f5f9"
-                strokeWidth="12"
-              />
-              <circle
-                cx="50"
-                cy="50"
-                r="40"
-                fill="transparent"
-                stroke="#10b981"
-                strokeWidth="12"
-                strokeDasharray="172 251"
-                strokeDashoffset="0"
-                className="transition-all duration-1000 ease-out"
-              />
-              <circle
-                cx="50"
-                cy="50"
-                r="40"
-                fill="transparent"
-                stroke="#f43f5e"
-                strokeWidth="12"
-                strokeDasharray="110 251"
-                strokeDashoffset="-175"
-                className="transition-all duration-1000 ease-out"
-              />
-              <circle
-                cx="50"
-                cy="50"
-                r="40"
-                fill="transparent"
-                stroke="#3b82f6"
-                strokeWidth="12"
-                strokeDasharray="30 251"
-                strokeDashoffset="-288"
-                className="transition-all duration-1000 ease-out"
-              />
-            </svg>
-            <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                TOTAL
-              </span>
-            </div>
-          </div>
-
-          {/* Legenda */}
-          <div className="w-full mt-8 space-y-3 px-2">
-            <div className="flex justify-between text-xs items-center border-b border-slate-50 pb-2">
-              <span className="flex items-center gap-2 font-bold text-slate-600">
-                <div className="w-2.5 h-2.5 rounded-full bg-emerald-500"></div>{" "}
-                Despesas Fixas
-              </span>
-              <span className="font-bold text-slate-800">R$ 12.750,10</span>
-            </div>
-            <div className="flex justify-between text-xs items-center border-b border-slate-50 pb-2">
-              <span className="flex items-center gap-2 font-bold text-slate-600">
-                <div className="w-2.5 h-2.5 rounded-full bg-rose-500"></div>{" "}
-                Cartão Crédito
-              </span>
-              <span className="font-bold text-slate-800">R$ 8.399,38</span>
-            </div>
-            <div className="flex justify-between text-xs items-center">
-              <span className="flex items-center gap-2 font-bold text-slate-600">
-                <div className="w-2.5 h-2.5 rounded-full bg-blue-500"></div>{" "}
-                Diversos
-              </span>
-              <span className="font-bold text-slate-800">R$ 1.394,28</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Tabela Fixa */}
-      <div className="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden flex-1 cursor-default">
-        <div className="overflow-x-auto custom-scrollbar h-full">
-          <table className="w-full text-sm min-w-[800px]">
-            <thead className="bg-slate-50">
-              <tr className="border-b border-slate-200">
-                <th className="p-4 pl-6 text-left text-[10px] font-black text-slate-400 uppercase tracking-widest sticky left-0 bg-slate-50 z-10 w-64">
-                  Categoria
-                </th>
-                {dadosGrafico.slice(0, 6).map((d) => (
-                  <th
-                    key={d.mes}
-                    className="p-4 text-center text-[10px] font-black text-slate-400 uppercase tracking-widest w-28"
-                  >
-                    {d.mes}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-slate-100">
-              <tr className="group hover:bg-slate-50 transition-colors">
-                <td className="p-0 border-r border-slate-100 relative sticky left-0 bg-white group-hover:bg-slate-50">
-                  <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-emerald-500"></div>
-                  <div className="p-4 pl-6 font-bold text-slate-700">
-                    Salário Mensal
-                  </div>
-                </td>
-                {dadosGrafico.slice(0, 6).map((_, i) => (
-                  <td
-                    key={i}
-                    className="p-4 text-center font-bold text-xs text-emerald-600 bg-emerald-50/10 border-r border-slate-50"
-                  >
-                    R$ 4.500,00
-                  </td>
-                ))}
-              </tr>
-              <tr className="group hover:bg-slate-50 transition-colors">
-                <td className="p-0 border-r border-slate-100 relative sticky left-0 bg-white group-hover:bg-slate-50">
-                  <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-rose-500"></div>
-                  <div className="p-4 pl-6 font-bold text-slate-700">
-                    Aluguel
-                  </div>
-                </td>
-                {dadosGrafico.slice(0, 6).map((_, i) => (
-                  <td
-                    key={i}
-                    className="p-4 text-center font-bold text-xs text-rose-500 bg-rose-50/10 border-r border-slate-50"
-                  >
-                    - R$ 1.800,00
-                  </td>
-                ))}
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
+    <ProjectImageViewer
+      src="/dash.png"
+      alt="Preview Dashboard Financeiro"
+    />
   );
 }
 
-// 2. MOCK GESTAO
 function GestaoDemo() {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [produtos, setProdutos] = useState([
-    {
-      id: 1,
-      nome: "COCA ZERO - LATA",
-      categoria: "BEBIDAS",
-      preco: 6.0,
-      imagem: "bg-red-100 text-red-600",
-      icon: "🥤",
-      status: "ATIVO",
-    },
-    {
-      id: 2,
-      nome: "COCA-COLA LATA",
-      categoria: "BEBIDAS",
-      preco: 6.0,
-      imagem: "bg-red-600 text-white",
-      icon: "🥤",
-      status: "ATIVO",
-    },
-    {
-      id: 3,
-      nome: "GUARANÁ ANTARCTICA",
-      categoria: "BEBIDAS",
-      preco: 15.0,
-      imagem: "bg-green-100 text-green-700",
-      icon: "🥤",
-      status: "ATIVO",
-    },
-    {
-      id: 4,
-      nome: "PIZZA 4 QUEIJOS",
-      categoria: "PIZZAS",
-      preco: 50.0,
-      imagem: "bg-orange-100 text-orange-600",
-      icon: "🍕",
-      status: "ATIVO",
-    },
-    {
-      id: 5,
-      nome: "PIZZA CALABRESA",
-      categoria: "PIZZAS",
-      preco: 30.0,
-      imagem: "bg-orange-50 text-orange-500",
-      icon: "🍕",
-      status: "ATIVO",
-      tag: "VARIAÇÕES",
-    },
-  ]);
-
-  const filteredProducts = produtos.filter(
-    (p) =>
-      p.nome.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      p.categoria.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
-  const handleDelete = (id: number) => {
-    if (confirm("Deseja excluir este produto da demonstração?")) {
-      setProdutos((prev) => prev.filter((p) => p.id !== id));
-    }
-  };
-
-  const handleAdd = () => {
-    const novo = {
-      id: Date.now(),
-      nome: "NOVO PRODUTO DEMO",
-      categoria: "GERAL",
-      preco: 10.0,
-      imagem: "bg-slate-200 text-slate-500",
-      icon: "📦",
-      status: "INATIVO",
-    };
-    setProdutos([novo, ...produtos]);
-  };
-
   return (
-    <div className="flex h-full bg-[#F3F4F6] font-sans text-slate-600 overflow-hidden">
-      {/* Sidebar (Menu Lateral) */}
-      <aside className="w-20 bg-white border-r border-slate-200 flex flex-col items-center py-6 gap-8 shadow-sm z-10 hidden md:flex cursor-default">
-        <div className="p-3 bg-blue-900 text-white rounded-xl mb-4">
-          <LayoutDashboard size={24} />
-        </div>
-        <div className="flex flex-col gap-6 w-full items-center">
-          <div className="p-3 text-slate-400 hover:bg-slate-50 rounded-xl cursor-pointer transition-colors">
-            <UtensilsCrossed size={24} />
-          </div>
-          <div className="p-3 bg-blue-50 text-blue-600 border-l-4 border-blue-600 w-full flex justify-center cursor-pointer">
-            <ShoppingBag size={24} />
-          </div>
-          <div className="p-3 text-slate-400 hover:bg-slate-50 rounded-xl cursor-pointer transition-colors">
-            <FileText size={24} />
-          </div>
-          <div className="p-3 text-slate-400 hover:bg-slate-50 rounded-xl cursor-pointer transition-colors">
-            <Settings size={24} />
-          </div>
-        </div>
-      </aside>
-
-      {/* Conteúdo Principal */}
-      <div className="flex-1 flex flex-col overflow-hidden">
-        {/* Header & Toolbar */}
-        <header className="bg-white border-b border-slate-200 p-6 md:p-8 pb-6 shadow-sm z-10">
-          <div className="flex flex-col md:flex-row justify-between md:items-center gap-4 mb-6">
-            <div>
-              <h2 className="text-2xl font-bold text-slate-800 cursor-default">
-                Catálogo de Produtos
-              </h2>
-              <p className="text-sm text-slate-500 cursor-default">
-                Gerencie preços, variações e estoque.
-              </p>
-            </div>
-            <button
-              onClick={handleAdd}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg font-bold text-sm flex items-center gap-2 transition-all active:scale-95 shadow-lg shadow-blue-100 cursor-pointer"
-            >
-              <Plus size={18} /> Novo Produto
-            </button>
-          </div>
-
-          {/* Barra de Filtros */}
-          <div className="flex flex-col md:flex-row gap-3">
-            <div className="flex-1 relative">
-              <Search
-                className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"
-                size={18}
-              />
-              <input
-                type="text"
-                placeholder="Buscar por nome ou categoria..."
-                className="w-full pl-12 pr-4 py-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-            </div>
-            <div className="flex gap-2">
-              <button className="px-4 py-2 border border-slate-200 rounded-lg text-sm font-bold text-slate-600 flex items-center gap-2 hover:bg-slate-50 cursor-pointer">
-                <Filter size={16} /> Todos
-              </button>
-              <div className="border border-slate-200 rounded-lg flex overflow-hidden">
-                <button className="p-2.5 bg-blue-50 text-blue-600 cursor-pointer">
-                  <List size={18} />
-                </button>
-                <button className="p-2.5 bg-white text-slate-400 hover:bg-slate-50 cursor-pointer">
-                  <Grid size={18} />
-                </button>
-              </div>
-            </div>
-          </div>
-        </header>
-
-        {/* Lista de Produtos */}
-        <div className="flex-1 overflow-y-auto p-6 md:p-8 space-y-3 bg-[#F8F9FA]">
-          {filteredProducts.length === 0 ? (
-            <div className="text-center py-20 text-slate-400 cursor-default">
-              Nenhum produto encontrado.
-            </div>
-          ) : (
-            filteredProducts.map((p) => (
-              <div
-                key={p.id}
-                className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4 hover:border-blue-300 transition-all group cursor-default"
-              >
-                <div className="flex items-center gap-5 w-full md:w-auto">
-                  <div
-                    className={`w-16 h-16 rounded-xl flex flex-col items-center justify-center shrink-0 ${p.imagem} relative overflow-hidden`}
-                  >
-                    <span className="text-2xl">{p.icon}</span>
-                    <div className="absolute bottom-0 w-full bg-black/20 text-[8px] text-white text-center font-bold py-0.5 uppercase">
-                      {p.categoria}
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-slate-800 text-sm md:text-base">
-                      {p.nome}
-                    </h3>
-                    <div className="flex items-center gap-2 mt-1">
-                      <span
-                        className={`text-[10px] font-bold px-2 py-0.5 rounded ${
-                          p.status === "ATIVO"
-                            ? "bg-green-100 text-green-700"
-                            : "bg-red-100 text-red-700"
-                        }`}
-                      >
-                        {p.status}
-                      </span>
-                      {p.tag && (
-                        <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-blue-100 text-blue-700">
-                          {p.tag}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-6 w-full md:w-auto justify-between md:justify-end">
-                  <div className="text-right">
-                    <p className="text-[10px] font-bold text-slate-400 uppercase">
-                      Preço
-                    </p>
-                    <p className="text-lg font-black text-slate-800">
-                      {p.preco.toLocaleString("pt-BR", {
-                        style: "currency",
-                        currency: "BRL",
-                      })}
-                    </p>
-                  </div>
-                  <div className="flex gap-2">
-                    <button
-                      className="p-2 border border-slate-200 rounded-lg text-blue-600 hover:bg-blue-50 transition-colors cursor-pointer"
-                      title="Editar"
-                    >
-                      <Pencil size={16} />
-                    </button>
-                    <button
-                      onClick={() => handleDelete(p.id)}
-                      className="p-2 border border-slate-200 rounded-lg text-red-600 hover:bg-red-50 transition-colors cursor-pointer"
-                      title="Excluir"
-                    >
-                      <Trash2 size={16} />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))
-          )}
-        </div>
-      </div>
-    </div>
+    <ProjectImageViewer
+      src="/ERP.png"
+      alt="Preview Gestão ERP"
+    />
   );
 }
 
-// 3. MOCK FEEDBACK
 function FeedbackDemo() {
-  const [activeTab, setActiveTab] = useState("votacao");
-  const [sugestoes, setSugestoes] = useState([
-    {
-      id: 1,
-      data: "04/01/2026",
-      titulo: "Integração com Balança Toledo",
-      resumo:
-        "Precisamos da homologação com a balança Toledo Prix 4. Atualmente só funciona com a Filizola...",
-      modulo: "PDV",
-      tipo: "MELHORIA",
-      votos: 8,
-      votado: false,
-      status: "votacao",
-    },
-    {
-      id: 2,
-      data: "05/01/2026",
-      titulo: "Modo Noturno (Dark Mode)",
-      resumo:
-        "Implementar tema escuro no aplicativo do garçom. Em ambientes de balada ou restaurantes com luz baixa...",
-      modulo: "Aplicativo Garçom",
-      tipo: "IMPORTANTE",
-      votos: 45,
-      votado: false,
-      status: "votacao",
-    },
-    {
-      id: 3,
-      data: "07/01/2026",
-      titulo: "Adicionar atalho PIX no PDV",
-      resumo:
-        "Seria muito útil ter um botão de atalho direto para pagamento via PIX na tela principal de vendas...",
-      modulo: "PDV",
-      tipo: "MELHORIA",
-      votos: 12,
-      votado: true,
-      status: "votacao",
-    },
-    {
-      id: 4,
-      data: "20/12/2025",
-      titulo: "Relatório de Curva ABC",
-      resumo: "Desenvolvimento do relatório de produtos mais vendidos...",
-      modulo: "Gestão",
-      tipo: "NOVA FUNÇÃO",
-      votos: 120,
-      votado: false,
-      status: "desenvolvimento",
-    },
-  ]);
-
-  const handleVote = (id: number) => {
-    setSugestoes((prev) =>
-      prev.map((s) => {
-        if (s.id === id) {
-          return {
-            ...s,
-            votos: s.votado ? s.votos - 1 : s.votos + 1,
-            votado: !s.votado,
-          };
-        }
-        return s;
-      })
-    );
-  };
-
-  const listaFiltrada = sugestoes.filter((s) => s.status === activeTab);
-
   return (
-    <div className="flex flex-col h-full bg-[#F3F6F9] font-sans text-slate-600 overflow-hidden p-6 md:p-10">
-      {/* Header */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold text-blue-900 flex items-center gap-2 cursor-default">
-          <span className="p-1 border-2 border-blue-900 rounded-full">
-            <Sparkles size={16} />
-          </span>
-          Sistema / Sugestões
-        </h2>
-        <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-1 ml-9 cursor-default">
-          Central de Melhorias e Feedback
-        </p>
-      </div>
-
-      {/* Toolbar */}
-      <div className="flex flex-col md:flex-row justify-between gap-4 mb-8">
-        <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-bold text-sm shadow-lg shadow-blue-200 transition-all active:scale-95 flex items-center gap-2 cursor-pointer">
-          <div className="bg-white/20 p-0.5 rounded-full">
-            <Plus size={14} />
-          </div>
-          Cadastrar Nova Ideia
-        </button>
-
-        <div className="relative w-full md:w-96">
-          <Search
-            className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"
-            size={18}
-          />
-          <input
-            type="text"
-            placeholder="Pesquisar sugestões..."
-            className="w-full pl-12 pr-4 py-3 bg-white border-none rounded-xl text-sm font-medium outline-none focus:ring-2 focus:ring-blue-200 transition-all shadow-sm"
-          />
-        </div>
-      </div>
-
-      {/* Tabs */}
-      <div className="flex gap-8 border-b border-slate-200 mb-6 overflow-x-auto">
-        <button
-          onClick={() => setActiveTab("votacao")}
-          className={`pb-4 text-sm font-bold flex items-center gap-2 transition-colors whitespace-nowrap cursor-pointer ${
-            activeTab === "votacao"
-              ? "text-blue-600 border-b-2 border-blue-600"
-              : "text-slate-400 hover:text-slate-600"
-          }`}
-        >
-          <Sparkles size={16} /> Em Votação
-        </button>
-        <button
-          onClick={() => setActiveTab("desenvolvimento")}
-          className={`pb-4 text-sm font-bold flex items-center gap-2 transition-colors whitespace-nowrap cursor-pointer ${
-            activeTab === "desenvolvimento"
-              ? "text-blue-600 border-b-2 border-blue-600"
-              : "text-slate-400 hover:text-slate-600"
-          }`}
-        >
-          <MessageSquare size={16} /> Em Desenvolvimento
-        </button>
-        <button className="pb-4 text-sm font-bold flex items-center gap-2 text-slate-400 hover:text-slate-600 transition-colors whitespace-nowrap cursor-pointer">
-          <CheckCircle2 size={16} /> Concluídas
-        </button>
-      </div>
-
-      {/* Lista (Tabela Clean) */}
-      <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex-1 overflow-y-auto">
-        <table className="w-full text-left text-sm">
-          <thead className="bg-slate-50 text-slate-400 font-bold text-[10px] uppercase tracking-widest border-b border-slate-100">
-            <tr>
-              <th className="px-6 py-5 w-32">Data</th>
-              <th className="px-6 py-5 w-1/4">Título da Sugestão</th>
-              <th className="px-6 py-5">Resumo</th>
-              <th className="px-6 py-5 w-40">Módulo</th>
-              <th className="px-6 py-5 w-32">Tipo</th>
-              <th className="px-6 py-5 text-center w-24">Votos</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-slate-50">
-            {listaFiltrada.length === 0 ? (
-              <tr>
-                <td
-                  colSpan={6}
-                  className="p-10 text-center text-slate-400 cursor-default"
-                >
-                  Nenhuma sugestão encontrada nesta aba.
-                </td>
-              </tr>
-            ) : (
-              listaFiltrada.map((s) => (
-                <tr
-                  key={s.id}
-                  className="hover:bg-slate-50 transition-colors group cursor-default"
-                >
-                  <td className="px-6 py-5 text-slate-400 font-bold text-xs">
-                    {s.data}
-                  </td>
-                  <td className="px-6 py-5 font-bold text-slate-700 text-base">
-                    {s.titulo}
-                  </td>
-                  <td
-                    className="px-6 py-5 text-slate-500 text-xs leading-relaxed max-w-xs truncate"
-                    title={s.resumo}
-                  >
-                    {s.resumo}
-                  </td>
-                  <td className="px-6 py-5 text-slate-500 font-medium">
-                    {s.modulo}
-                  </td>
-                  <td className="px-6 py-5">
-                    <span
-                      className={`px-3 py-1 rounded-full text-[10px] font-black uppercase ${
-                        s.tipo === "IMPORTANTE"
-                          ? "bg-orange-50 text-orange-600"
-                          : "bg-blue-50 text-blue-600"
-                      }`}
-                    >
-                      {s.tipo}
-                    </span>
-                  </td>
-                  <td className="px-6 py-5 text-center">
-                    <button
-                      onClick={() => handleVote(s.id)}
-                      className={`flex items-center gap-2 px-3 py-1.5 rounded-lg border transition-all active:scale-95 cursor-pointer ${
-                        s.votado
-                          ? "bg-blue-900 text-white border-blue-900"
-                          : "bg-white text-slate-500 border-slate-200 hover:border-blue-300 hover:text-blue-600"
-                      }`}
-                    >
-                      {s.votado ? <Check size={14} /> : <ThumbsUp size={14} />}
-                      <span className="font-bold text-xs">{s.votos}</span>
-                    </button>
-                  </td>
-                </tr>
-              ))
-            )}
-          </tbody>
-        </table>
-      </div>
-    </div>
+    <ProjectImageViewer
+      src="sug.png"
+      alt="Preview Sistema de Feedback"
+    />
   );
 }
