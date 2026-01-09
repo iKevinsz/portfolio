@@ -100,7 +100,7 @@ const translations = {
       },
       h3: {
         title: "Gamer & Criativo",
-        desc: "A criatividade dos jogos e animes inspira meu design. Busco sempre o 'Pixel Perfect' e a melhor estratégia.",
+        desc: "A criatividade dos jogos inspira meu design. Busco sempre o 'Pixel Perfect' e a melhor estratégia.",
       },
     },
     footer: {
