@@ -354,8 +354,8 @@ export default function Portfolio() {
       <section id="projetos" className="py-32 px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col items-start mb-16">
-             <SpotlightText>{t.projects.title}</SpotlightText>
-             <p className="text-slate-400 max-w-lg mt-4">{t.projects.subtitle}</p>
+              <SpotlightText>{t.projects.title}</SpotlightText>
+              <p className="text-slate-400 max-w-lg mt-4">{t.projects.subtitle}</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* LUNIERE - PRIMEIRO CARD, LINK EXTERNO */}
@@ -389,16 +389,17 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* --- FOOTER (CORRIGIDO: Espaço e Corte) --- */}
+      {/* --- FOOTER --- */}
       <footer id="contato" className="pt-20 pb-24 bg-[#050505] relative z-10 border-t border-white/5">
         <div className="max-w-4xl mx-auto px-6 text-center flex flex-col items-center">
           <SpotlightText>{t.footer.title}</SpotlightText>
           <p className="text-slate-400 mb-10 mt-6">{t.footer.desc}</p>
+          {/* BOTÕES COM ANIMAÇÃO SPOTLIGHT (TODOS IGUAIS AGORA) */}
           <div className="flex flex-wrap justify-center gap-4 mb-16 relative z-20">
             <SpotlightButton href="https://github.com/iKevinsz" icon={<Github size={20} />} label="GitHub" />
-            <SocialBtn href="https://linkedin.com/in/kevin-rodrigo-000632209/" icon={<Linkedin size={20} />} label="LinkedIn" />
-            <SocialBtn href="https://instagram.com/kev1n_x/" icon={<Instagram size={20} />} label="Instagram" />
-            <SocialBtn href="mailto:fioreelokevin@gmail.com" icon={<Mail size={20} />} label="Email" />
+            <SpotlightButton href="https://linkedin.com/in/kevin-rodrigo-000632209/" icon={<Linkedin size={20} />} label="LinkedIn" />
+            <SpotlightButton href="https://instagram.com/kev1n_x/" icon={<Instagram size={20} />} label="Instagram" />
+            <SpotlightButton href="mailto:fioreelokevin@gmail.com" icon={<Mail size={20} />} label="Email" />
           </div>
           <div className="pt-8 border-t border-white/10 text-slate-600 text-sm">© {new Date().getFullYear()} Kevin Rodrigo. {t.footer.copy}</div>
         </div>
@@ -507,12 +508,6 @@ function ProjectCard({ title, desc, tags, color, onDemoClick, hasDemo }: any) {
       <p className="text-slate-400 text-sm leading-relaxed mb-8 flex-grow">{desc}</p>
       <div className="flex flex-wrap gap-2 mt-auto">{tags.map((tag: string) => (<span key={tag} className="text-xs font-bold px-3 py-1.5 rounded-lg bg-white/5 text-slate-300 border border-white/5 cursor-default">{tag}</span>))}</div>
     </div>
-  );
-}
-
-function SocialBtn({ href, icon, label }: any) {
-  return (
-    <a href={href} target="_blank" className="flex items-center gap-2 px-5 py-3 bg-white/5 border border-white/10 rounded-full text-slate-300 hover:text-white hover:bg-white/10 hover:scale-105 transition-all font-medium text-sm cursor-pointer" aria-label={label}>{icon} {label}</a>
   );
 }
 
