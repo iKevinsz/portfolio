@@ -21,9 +21,18 @@ import {
   Users,
   Eye,
   Image as ImageIcon,
+  // Importando os ícones originais do Lucide para reverter
+  Terminal,
+  Layers,
+  FileCode2,
+  Figma,
+  Database,
+  Triangle,
+  Brush,
+  GitBranch,
 } from "lucide-react";
 
-// --- ÍCONES DE MARCAS  ---
+// --- ÍCONES CUSTOMIZADOS (APENAS OS QUE VOCÊ PEDIU PARA MANTER) ---
 const BrandIcons = {
   HTML: (props: any) => (
     <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
@@ -35,16 +44,6 @@ const BrandIcons = {
       <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.332 3.71-2.953.8-2.955-.8-.192-2.19H5.877l.4 4.542 5.673 1.573 5.717-1.583.742-8.312H8.531z"/>
     </svg>
   ),
-  JS: (props: any) => (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.958-.425 1.279-1.82 2.23-3.085 2.14-1.05-.075-1.785-.56-2.285-1.265l1.73-1.135c.205.375.45.61.765.65.655.085 1.015-.415 1.025-1.305.01-.865 0-1.725 0-2.585v-5.263z"/>
-    </svg>
-  ),
-  TS: (props: any) => (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0H1.125zM11.52 13.766c0-1.22.612-1.794 1.93-2.182 1.181-.365 1.383-.655 1.383-1.082 0-.616-.487-.9-1.472-.9-.985 0-1.46.33-1.636 1.123l-1.9-.536c.465-1.87 1.838-2.392 3.636-2.392 2.28 0 3.334.98 3.334 2.656 0 1.547-.84 2.115-2.203 2.507-1.103.32-1.298.63-1.298 1.086 0 .565.483.844 1.487.844.975 0 1.62-.358 1.87-1.099l1.83.606c-.524 1.77-1.874 2.302-3.7 2.302-2.158 0-3.195-1.023-3.195-2.933zM7.525 21H5.43v-8.473H2.816v-1.808h7.32v1.808H7.525V21z"/>
-    </svg>
-  ),
   React: (props: any) => (
     <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
       <circle cx="12" cy="12" r="2" />
@@ -53,59 +52,39 @@ const BrandIcons = {
       <ellipse rx="10" ry="4.5" cx="12" cy="12" transform="rotate(120 12 12)" fill="none" stroke="currentColor" strokeWidth="1.5" />
     </svg>
   ),
-  Next: (props: any) => (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path d="M18.61 18.61A10 10 0 0 0 12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10c0-1.45-.31-2.83-.87-4.08zM12 4c1.65 0 3.19.5 4.49 1.36L8 16.32V7.5a.5.5 0 0 1 1 0v6.18l6.45-8.43A8 8 0 0 0 12 4zm-1.5 13.5l3.82-5.01V16a.5.5 0 0 1-1 0v-2.3l-2.82 3.8Z" />
-    </svg>
-  ),
-  // Tailwind - Path Corrigido (Ondas)
   Tailwind: (props: any) => (
     <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
       <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8 .913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8 -1.2 1.6-2.6 2.2-4.2 1.8 -.913-.228-1.565-.89-2.288-1.624 C16.337 6.182 14.976 4.8 12.001 4.8z M6.001 12c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8 .913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8 -1.2 1.6-2.6 2.2-4.2 1.8 -.913-.228-1.565-.89-2.288-1.624 C10.337 13.382 8.976 12 6.001 12z"/>
     </svg>
   ),
-  // Figma - Path Corrigido (Círculos e Gota)
-  Figma: (props: any) => (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M15 6a3 3 0 11-6 0 3 3 0 016 0z M9 6a3 3 0 11-6 0 3 3 0 016 0z M9 12a3 3 0 11-6 0 3 3 0 016 0z M9 18a3 3 0 110 6 3 3 0 010-6z"/>
-    </svg>
-  ),
-  Postgre: (props: any) => (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm0 2.2c5.413 0 9.8 4.387 9.8 9.8 0 5.413-4.387 9.8-9.8 9.8-5.413 0-9.8-4.387-9.8-9.8 0-5.413 4.387-9.8 9.8-9.8zm4.336 4.364c-.655-.178-1.53-.18-2.008-.103-1.07.172-1.688.752-1.928 1.503-.103.32-.142.66-.142 1.002 0 1.258.423 1.95 1.026 2.375.295.207.632.327 1.015.34.394.015.82-.102 1.25-.333v-1.15h-1.066v-.93h2.152v2.96c-.66.526-1.46.8-2.285.764-.78-.035-1.492-.378-1.986-1.003-.523-.663-.762-1.644-.66-2.693.12-1.222.658-2.23 1.523-2.822.863-.593 2.05-.724 3.033-.377l.076-1.533z"/>
-    </svg>
-  ),
-  Vercel: (props: any) => (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path d="M12 1L24 22H0L12 1Z" />
-    </svg>
-  ),
-  MUI: (props: any) => (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path d="M0 2.475v10.39l3 1.733V7.61l9 5.198 9-5.199v6.988l3-1.733V2.475L12 7.674 0 2.475zm0 13.858v5.199l9 5.199v-5.199l-9-5.199zm12 0v5.199l9 5.199v-5.199l-9-5.199z"/>
-    </svg>
-  ),
-  Git: (props: any) => (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.652 2.66c.645-.223 1.387-.078 1.9.435.721.72.721 1.884 0 2.604-.719.719-1.881.719-2.6 0-.539-.541-.674-1.33-.42-1.984L12.48 8.64c-.65.252-1.432.123-1.97-.416-.272-.271-.439-.623-.49-1.002L7.205 10.03v5.857c.605.152 1.107.613 1.326 1.182.08.209.119.428.113.646.035 1.055-.785 1.943-1.836 1.984C5.756 23.74 4.873 22.92 4.838 21.865c-.006-.219.033-.438.113-.646.219-.568.721-1.03 1.326-1.182V9.12l-5.37 5.37c-.603.604-.603 1.582 0 2.188l10.48 10.48c.604.604 1.582.604 2.188 0l10.48-10.48c.604-.604.604-1.582 0-2.188z"/>
-    </svg>
-  ),
 };
 
-// --- DADOS DA STACK (COM NOVOS ÍCONES E CORES) ---
+// --- DADOS DA STACK (MISTO: CUSTOM + LUCIDE) ---
 const TECH_STACK = [
+  // Mantidos (Custom SVG)
   { name: "HTML5", icon: <BrandIcons.HTML width={24} height={24} />, color: "text-orange-500", bg: "group-hover:bg-orange-500/10" },
   { name: "CSS3", icon: <BrandIcons.CSS width={24} height={24} />, color: "text-blue-500", bg: "group-hover:bg-blue-500/10" },
-  { name: "JavaScript", icon: <BrandIcons.JS width={24} height={24} />, color: "text-yellow-400", bg: "group-hover:bg-yellow-400/10" },
-  { name: "TypeScript", icon: <BrandIcons.TS width={24} height={24} />, color: "text-blue-400", bg: "group-hover:bg-blue-400/10" },
+  
+  // Revertidos (Lucide Icons Originais)
+  { name: "JavaScript", icon: <Code2 />, color: "text-yellow-400", bg: "group-hover:bg-yellow-400/10" },
+  { name: "TypeScript", icon: <Terminal />, color: "text-blue-400", bg: "group-hover:bg-blue-400/10" },
+  
+  // Mantido (Custom SVG)
   { name: "React", icon: <BrandIcons.React width={24} height={24} />, color: "text-cyan-400", bg: "group-hover:bg-cyan-400/10" },
-  { name: "Next.js", icon: <BrandIcons.Next width={24} height={24} />, color: "text-white", bg: "group-hover:bg-white/10" },
+  
+  // Revertidos (Lucide Icons Originais)
+  { name: "Next.js", icon: <Layers />, color: "text-white", bg: "group-hover:bg-white/10" },
+  { name: "Python", icon: <FileCode2 />, color: "text-yellow-300", bg: "group-hover:bg-yellow-300/10" },
+  
+  // Mantido (Custom SVG)
   { name: "Tailwind", icon: <BrandIcons.Tailwind width={24} height={24} />, color: "text-cyan-300", bg: "group-hover:bg-cyan-300/10" },
-  { name: "Figma", icon: <BrandIcons.Figma width={24} height={24} />, color: "text-pink-500", bg: "group-hover:bg-pink-500/10" },
-  { name: "PostgreSQL", icon: <BrandIcons.Postgre width={24} height={24} />, color: "text-blue-300", bg: "group-hover:bg-blue-300/10" },
-  { name: "Vercel", icon: <BrandIcons.Vercel width={24} height={24} />, color: "text-white", bg: "group-hover:bg-white/10" },
-  { name: "MUI", icon: <BrandIcons.MUI width={24} height={24} />, color: "text-blue-500", bg: "group-hover:bg-blue-500/10" },
-  { name: "Git", icon: <BrandIcons.Git width={24} height={24} />, color: "text-orange-400", bg: "group-hover:bg-orange-400/10" },
+  
+  // Revertidos (Lucide Icons Originais)
+  { name: "Figma", icon: <Figma />, color: "text-pink-500", bg: "group-hover:bg-pink-500/10" },
+  { name: "PostgreSQL", icon: <Database />, color: "text-blue-300", bg: "group-hover:bg-blue-300/10" },
+  { name: "Vercel", icon: <Triangle />, color: "text-white", bg: "group-hover:bg-white/10" },
+  { name: "MUI", icon: <Brush />, color: "text-blue-500", bg: "group-hover:bg-blue-500/10" },
+  { name: "Git", icon: <GitBranch />, color: "text-orange-400", bg: "group-hover:bg-orange-400/10" },
 ];
 
 // --- TEXTOS ---
@@ -114,7 +93,6 @@ const translations = {
     nav: { sobre: "Sobre", projetos: "Projetos", stack: "Stack", contato: "Contato" },
     hero: {
       status: "Disponível para projetos",
-      rolePrefix: "Eu sou",
       role: "Desenvolvedor",
       role2: "Front End",
       subtitle: "& Especialista em React",
@@ -132,7 +110,7 @@ const translations = {
     about: {
       title: "Sobre mim",
       experience: { title: "Experiência", desc: "Desenvolvedor front-end com experiência em criação de interfaces modernas e responsivas. Especializado em React e seu ecossistema, sempre buscando as melhores práticas e novas tecnologias." },
-      hardSkills: { title: "Habilidades Técnicas", list: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Next.js", "Tailwind", "Figma", "PostgreSQL", "Vercel", "MUI", "Git"] },
+      hardSkills: { title: "Habilidades Técnicas", list: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Next.js", "Python", "Tailwind", "Figma", "PostgreSQL", "Vercel", "MUI", "Git"] },
       softSkills: { title: "Habilidades Interpessoais", desc: "Comunicação eficaz, trabalho em equipe, resolução de problemas, adaptabilidade e aprendizado contínuo." },
       education: { title: "Formação Acadêmica", items: [{ year: "2021 - 2024", course: "Análise e Desenvolvimento de Sistemas", school: "FATEC Guaratinguetá" }] }
     },
@@ -180,7 +158,7 @@ const translations = {
     about: {
       title: "About Me",
       experience: { title: "Experience", desc: "Front-end developer experienced in creating modern and responsive interfaces. Specialized in React and its ecosystem, always seeking best practices and new technologies." },
-      hardSkills: { title: "Technical Skills (Hard Skills)", list: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Next.js", "Tailwind", "MUI", "Git"] },
+      hardSkills: { title: "Technical Skills (Hard Skills)", list: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Next.js", "Python", "Tailwind", "MUI", "Git"] },
       softSkills: { title: "Interpersonal Skills (Soft Skills)", desc: "Effective communication, teamwork, problem-solving, adaptability, and continuous learning." },
       education: { title: "Academic Education", items: [{ year: "2021 - 2024", course: "Systems Analysis and Development", school: "FATEC Guaratinguetá" }] }
     },
@@ -366,7 +344,7 @@ export default function Portfolio() {
       >
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           
-          {/* LOGO COM SCROLL TO TOP */}
+          {/* LOGO COM SCROLL TO TOP (CORRIGIDO) */}
           <Link 
             href="#" 
             onClick={(e) => {
