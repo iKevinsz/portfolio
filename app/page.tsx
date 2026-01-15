@@ -21,7 +21,7 @@ import {
   Users,
   Eye,
   Image as ImageIcon,
-  // Importando os ícones originais do Lucide para reverter
+  // Importando os ícones originais do Lucide
   Terminal,
   Layers,
   FileCode2,
@@ -32,7 +32,7 @@ import {
   GitBranch,
 } from "lucide-react";
 
-// --- ÍCONES CUSTOMIZADOS (APENAS OS QUE VOCÊ PEDIU PARA MANTER) ---
+// --- ÍCONES CUSTOMIZADOS ---
 const BrandIcons = {
   HTML: (props: any) => (
     <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
@@ -59,27 +59,16 @@ const BrandIcons = {
   ),
 };
 
-// --- DADOS DA STACK (MISTO: CUSTOM + LUCIDE) ---
+// --- DADOS DA STACK ---
 const TECH_STACK = [
-  // Mantidos (Custom SVG)
   { name: "HTML5", icon: <BrandIcons.HTML width={24} height={24} />, color: "text-orange-500", bg: "group-hover:bg-orange-500/10" },
   { name: "CSS3", icon: <BrandIcons.CSS width={24} height={24} />, color: "text-blue-500", bg: "group-hover:bg-blue-500/10" },
-  
-  // Revertidos (Lucide Icons Originais)
   { name: "JavaScript", icon: <Code2 />, color: "text-yellow-400", bg: "group-hover:bg-yellow-400/10" },
   { name: "TypeScript", icon: <Terminal />, color: "text-blue-400", bg: "group-hover:bg-blue-400/10" },
-  
-  // Mantido (Custom SVG)
   { name: "React", icon: <BrandIcons.React width={24} height={24} />, color: "text-cyan-400", bg: "group-hover:bg-cyan-400/10" },
-  
-  // Revertidos (Lucide Icons Originais)
   { name: "Next.js", icon: <Layers />, color: "text-white", bg: "group-hover:bg-white/10" },
   { name: "Python", icon: <FileCode2 />, color: "text-yellow-300", bg: "group-hover:bg-yellow-300/10" },
-  
-  // Mantido (Custom SVG)
   { name: "Tailwind", icon: <BrandIcons.Tailwind width={24} height={24} />, color: "text-cyan-300", bg: "group-hover:bg-cyan-300/10" },
-  
-  // Revertidos (Lucide Icons Originais)
   { name: "Figma", icon: <Figma />, color: "text-pink-500", bg: "group-hover:bg-pink-500/10" },
   { name: "PostgreSQL", icon: <Database />, color: "text-blue-300", bg: "group-hover:bg-blue-300/10" },
   { name: "Vercel", icon: <Triangle />, color: "text-white", bg: "group-hover:bg-white/10" },
@@ -87,7 +76,6 @@ const TECH_STACK = [
   { name: "Git", icon: <GitBranch />, color: "text-orange-400", bg: "group-hover:bg-orange-400/10" },
 ];
 
-// --- TEXTOS ---
 const translations = {
   pt: {
     nav: { sobre: "Sobre", projetos: "Projetos", stack: "Stack", contato: "Contato" },
@@ -117,18 +105,9 @@ const translations = {
     projects: {
       title: "Interfaces em Destaque",
       subtitle: "Uma seleção de projetos onde foquei na experiência do usuário, interatividade e design responsivo.",
-      p1: { 
-        title: "Luniére Balões & Decoração", 
-        desc: "Portfólio elegante e minimalista com foco visual. Carousel automático, animações suaves e design clean para destacar as fotos do cliente." 
-      },
-      p2: { 
-        title: "Dashboard Financeiro & AI", 
-        desc: "Interface de dados rica e interativa. Gráficos animados, tabelas dinâmicas e uma integração visual limpa com o Consultor IA (Gemini)." 
-      },
-      p3: { 
-        title: "Gestão Web (ERP)", 
-        desc: "Foco total em UX Mobile. Criação de fluxos de cadastro intuitivos e relatórios visuais para facilitar a vida do lojista no celular." 
-      },
+      p1: { title: "Luniére Balões & Decoração", desc: "Portfólio elegante e minimalista com foco visual. Carousel automático, animações suaves e design clean para destacar as fotos do cliente." },
+      p2: { title: "Dashboard Financeiro & AI", desc: "Interface de dados rica e interativa. Gráficos animados, tabelas dinâmicas e uma integração visual limpa com o Consultor IA (Gemini)." },
+      p3: { title: "Gestão Web (ERP)", desc: "Foco total em UX Mobile. Criação de fluxos de cadastro intuitivos e relatórios visuais para facilitar a vida do lojista no celular." },
     },
     footer: {
       title: "Vamos construir algo incrível?",
@@ -152,31 +131,21 @@ const translations = {
           <strong className="text-slate-100"> UX/UI Design</strong>.
         </>
       ),
-      cta: "Let's talk",
     },
     stack: "Technologies I master",
     about: {
       title: "About Me",
       experience: { title: "Experience", desc: "Front-end developer experienced in creating modern and responsive interfaces. Specialized in React and its ecosystem, always seeking best practices and new technologies." },
-      hardSkills: { title: "Technical Skills (Hard Skills)", list: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Next.js", "Python", "Tailwind", "MUI", "Git"] },
-      softSkills: { title: "Interpersonal Skills (Soft Skills)", desc: "Effective communication, teamwork, problem-solving, adaptability, and continuous learning." },
+      hardSkills: { title: "Technical Skills", list: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Next.js", "Python", "Tailwind", "MUI", "Git"] },
+      softSkills: { title: "Interpersonal Skills", desc: "Effective communication, teamwork, problem-solving, adaptability, and continuous learning." },
       education: { title: "Academic Education", items: [{ year: "2021 - 2024", course: "Systems Analysis and Development", school: "FATEC Guaratinguetá" }] }
     },
     projects: {
       title: "Featured Interfaces",
       subtitle: "A selection of projects where I focused on user experience, interactivity, and responsive design.",
-      p1: { 
-        title: "Luniére Balões & Decoração", 
-        desc: "Elegant and minimalist portfolio focused on visuals. Automatic carousel, smooth animations, and clean design to highlight client photos." 
-      },
-      p2: { 
-        title: "Finance Dashboard & AI", 
-        desc: "Rich and interactive data interface. Animated charts, dynamic tables, and a clean visual integration with the AI Consultant (Gemini)." 
-      },
-      p3: { 
-        title: "Web Management (ERP)", 
-        desc: "Total focus on Mobile UX. Creation of intuitive registration flows and visual reports to make the merchant's life easier on mobile." 
-      },
+      p1: { title: "Luniére Balões & Decoração", desc: "Elegant and minimalist portfolio focused on visuals. Automatic carousel, smooth animations, and clean design to highlight client photos." },
+      p2: { title: "Finance Dashboard & AI", desc: "Rich and interactive data interface. Animated charts, dynamic tables, and a clean visual integration with the AI Consultant (Gemini)." },
+      p3: { title: "Web Management (ERP)", desc: "Total focus on Mobile UX. Creation of intuitive registration flows and visual reports to make the merchant's life easier on mobile." },
     },
     footer: {
       title: "Let's build something amazing?",
@@ -217,7 +186,6 @@ export default function Portfolio() {
       onMouseMove={handleMouseMove}
       className="min-h-screen bg-[#050505] text-slate-200 font-sans selection:bg-blue-500/30 overflow-x-hidden relative"
     >
-      {/* --- GLOBAL STYLES --- */}
       <style jsx global>{`
         @keyframes scroll {
           0% { transform: translateX(0); }
@@ -253,11 +221,9 @@ export default function Portfolio() {
           background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
                            linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
         }
+        /* Classe de rolagem contínua sem pausa no hover */
         .animate-scroll {
           animation: scroll 40s linear infinite;
-        }
-        .animate-scroll:hover {
-          animation-play-state: paused;
         }
       `}</style>
 
@@ -301,33 +267,29 @@ export default function Portfolio() {
         </div>
       </div>
 
-      {/* --- MODAL DE IMAGEM (LIGHTBOX MELHORADO) --- */}
+      {/* --- MODAL DE IMAGEM --- */}
       <AnimatePresence>
         {activeDemo && (
           <motion.div 
             initial={{ opacity: 0 }} 
             animate={{ opacity: 1 }} 
             exit={{ opacity: 0 }}
-            // Backdrop mais escuro e com blur
             className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/95 backdrop-blur-xl cursor-zoom-out"
             onClick={() => setActiveDemo(null)}
           >
-            {/* Botão de Fechar Flutuante */}
             <button 
               onClick={() => setActiveDemo(null)}
               className="absolute top-6 right-6 p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors z-[110]"
             >
               <X size={32} />
             </button>
-
-            {/* Container da Imagem (Sem cortes) */}
             <motion.div 
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: "spring", damping: 20 }}
               className="relative max-w-[90vw] max-h-[90vh] overflow-hidden rounded-lg shadow-2xl border border-white/10"
-              onClick={(e) => e.stopPropagation()} // Clique na imagem não fecha
+              onClick={(e) => e.stopPropagation()}
             >
               {activeDemo}
             </motion.div>
@@ -343,8 +305,6 @@ export default function Portfolio() {
         className="fixed top-0 w-full z-50 bg-[#050505]/80 backdrop-blur-md border-b border-white/5"
       >
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          
-          {/* LOGO COM SCROLL TO TOP (CORRIGIDO) */}
           <Link 
             href="#" 
             onClick={(e) => {
@@ -362,13 +322,9 @@ export default function Portfolio() {
 
           <div className="flex items-center gap-6">
             <div className="hidden md:flex gap-8 text-sm font-medium text-slate-400">
-              {/* @ts-ignore */}
               <NavLink href="#stack">{t.nav.stack}</NavLink>
-              {/* @ts-ignore */}
               <NavLink href="#sobre">{t.nav.sobre}</NavLink>
-              {/* @ts-ignore */}
               <NavLink href="#projetos">{t.nav.projetos}</NavLink>
-              {/* @ts-ignore */}
               <NavLink href="#contato">{t.nav.contato}</NavLink>
             </div>
             <button onClick={toggleLang} className="relative w-20 h-9 bg-white/5 rounded-full border border-white/10 flex items-center p-1 hover:border-white/30 hover:bg-white/10 active:scale-95 shadow-inner transition-colors">
@@ -443,15 +399,17 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* --- TECH STACK --- */}
+      {/* --- TECH STACK (INFINITE SCROLL CORRIGIDO) --- */}
       <section id="stack" className="py-16 border-y border-white/5 bg-white/[0.02] relative z-10 backdrop-blur-sm overflow-hidden">
         <div className="max-w-full mx-auto">
           <p className="text-center text-slate-500 text-xs font-bold uppercase tracking-[0.2em] mb-12">{t.stack}</p>
           <div className="relative flex w-full">
             <div className="absolute left-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-r from-[#050505] to-transparent pointer-events-none"></div>
             <div className="absolute right-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-l from-[#050505] to-transparent pointer-events-none"></div>
-            <div className="flex gap-8 animate-scroll w-max hover:[animation-play-state:paused]">
-              {[...TECH_STACK, ...TECH_STACK].map((tech, index) => (
+            
+            {/* Duplicamos a lista 4 vezes para garantir que cubra qualquer tamanho de tela sem gaps */}
+            <div className="flex gap-8 animate-scroll w-max">
+              {[...TECH_STACK, ...TECH_STACK, ...TECH_STACK, ...TECH_STACK].map((tech, index) => (
                 <div key={index} className="flex flex-col items-center justify-center gap-3 min-w-[120px] group cursor-default">
                   <motion.div 
                     whileHover={{ scale: 1.1, rotate: 5 }}
@@ -514,8 +472,8 @@ export default function Portfolio() {
               </motion.div>
 
               <motion.div initial={{ x: 50, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ delay: 0.3 }}>
-                 <h3 className="text-blue-400 font-bold flex items-center gap-2 mb-3"><Users size={20} /> {t.about.softSkills.title}</h3>
-                 <p className="text-slate-400 leading-relaxed">{t.about.softSkills.desc}</p>
+                  <h3 className="text-blue-400 font-bold flex items-center gap-2 mb-3"><Users size={20} /> {t.about.softSkills.title}</h3>
+                  <p className="text-slate-400 leading-relaxed">{t.about.softSkills.desc}</p>
               </motion.div>
 
               <motion.div initial={{ x: 50, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ delay: 0.4 }}>
@@ -536,7 +494,7 @@ export default function Portfolio() {
         </div>
       </RevealSection>
 
-      {/* --- PROJETOS (SPOTLIGHT CARDS COM BORDA CORRIGIDA) --- */}
+      {/* --- PROJETOS (SPOTLIGHT CARDS) --- */}
       <RevealSection id="projetos" className="py-32 px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col items-start mb-16">
@@ -645,7 +603,7 @@ function RevealSection({ children, className, id }: any) {
   );
 }
 
-// --- SPOTLIGHT CARD V3 (CORRIGIDO: COM ALTURA E BORDA NEON) ---
+// --- SPOTLIGHT CARD V3 ---
 function SpotlightCard({ title, desc, tags, color, onDemoClick, hasDemo }: any) {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -664,13 +622,10 @@ function SpotlightCard({ title, desc, tags, color, onDemoClick, hasDemo }: any) 
   const themeColor = colors[color];
 
   return (
-    // relative e h-full para manter o tamanho no grid
     <div 
       className="group relative h-full rounded-3xl bg-[#0F0F0F] overflow-hidden flex flex-col"
       onMouseMove={handleMouseMove}
     >
-      
-      {/* Camada da Borda (Absoluta atrás do conteúdo) */}
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
         <div 
           className="absolute inset-[-100%] animate-spin-slow"
@@ -680,10 +635,7 @@ function SpotlightCard({ title, desc, tags, color, onDemoClick, hasDemo }: any) 
         />
       </div>
 
-      {/* Conteúdo (Relative + Margem de 1px para revelar a borda + flex-1 para preencher altura) */}
       <div className="relative flex-1 m-[1px] bg-[#0F0F0F] rounded-[23px] p-8 flex flex-col border border-white/10 group-hover:border-transparent transition-colors z-10">
-        
-        {/* Spotlight Interno */}
         <motion.div
           className="pointer-events-none absolute -inset-px rounded-[23px] opacity-0 transition duration-300 group-hover:opacity-100"
           style={{
@@ -733,7 +685,7 @@ function SpotlightCard({ title, desc, tags, color, onDemoClick, hasDemo }: any) 
   );
 }
 
-// --- SPOTLIGHT TEXT & BUTTON ---
+// --- SPOTLIGHT TEXT ---
 function SpotlightText({ children, className = "" }: { children: React.ReactNode, className?: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -828,7 +780,6 @@ function SocialBtnSimple({ href, icon }: any) {
 }
 
 const ProjectImageViewer = ({ src, alt }: { src: string; alt: string }) => (
-  // Visualizador Simples dentro do Lightbox (A imagem expande sozinha lá)
   <img src={src} alt={alt} className="w-full h-full object-contain" />
 );
 
